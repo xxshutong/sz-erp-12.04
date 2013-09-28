@@ -7,3 +7,5 @@ ofbiz.iml
 ofbiz.jar
 svninfo.ftl
 derby.properties
+runtime/logs/access*
+runtime/catalina/work/*
