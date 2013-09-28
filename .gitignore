@@ -1,0 +1,9 @@
+ofbiz.iml
+.idea/
+**/*/build/
+.DS_Store
+*.log
+*.log.*
+ofbiz.jar
+svninfo.ftl
+derby.properties
