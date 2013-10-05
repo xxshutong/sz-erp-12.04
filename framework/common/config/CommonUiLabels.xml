@@ -12400,4 +12400,11 @@
         <value xml:lang="zh_CN">中文</value>
         <value xml:lang="zh_TW">中文</value>
     </property>
+
+
+    <!-- CUSTOM PART FOR SZ-ERP -->
+    <property key="Inventory">
+        <value xml:lang="en">Inventory</value>
+        <value xml:lang="zh">库存管理</value>
+    </property>
 </resource>

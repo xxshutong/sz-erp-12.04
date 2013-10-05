@@ -20,4 +20,5 @@ locales.available=zh
 country.geo.id.default=CHINA
 3. 修改sz-erp*/framework/start/src/org/ofbiz/base/start/start.properties如下
 ofbiz.locale.default=zh
+4. 转移framework/common/config/CommonUiLabels.xml中<!-- CUSTOM PART FOR SZ-ERP -->以下部分
 

@@ -50,7 +50,15 @@ under the License.
     <!--&ndash;&gt;-->
 
     <!-- Request Mappings -->
-    <request-map uri="main"><security https="false" auth="false"/><response name="success" type="view" value="main"/></request-map>
+    <request-map uri="main">
+        <security https="false" auth="false"/>
+        <response name="success" type="view" value="main"/>
+    </request-map>
+
+    <request-map uri="ManageBatchNo">
+        <security https="false" auth="false"/>
+        <response name="success" type="view" value="ManageBatchNo"/>
+    </request-map>
 
     <!--&lt;!&ndash; Example Requests &ndash;&gt;-->
     <!--<request-map uri="FindExample"><security https="true" auth="true"/><response name="success" type="view" value="FindExample"/></request-map>-->
@@ -239,6 +247,7 @@ under the License.
 
     <!-- View Mappings-->
     <view-map name="main" type="screen" page="component://sz-inventory/widget/CommonScreens.xml#main"/>
+    <view-map name="ManageBatchNo" type="screen" page="component://sz-inventory/widget/InventoryScreens.xml#ManageBatchNo"/>
 
     <!--<view-map name="FindExample" type="screen" page="component://example/widget/example/ExampleScreens.xml#FindExample"/>-->
     <!--<view-map name="EditExample" type="screen" page="component://example/widget/example/ExampleScreens.xml#EditExample"/>-->

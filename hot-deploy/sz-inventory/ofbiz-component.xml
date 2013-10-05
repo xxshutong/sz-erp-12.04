@@ -20,5 +20,5 @@
             base-permission="OFBTOOLS"
             location="webapp/inventory"
             mount-point="/sz-inventory"
-            app-bar-display="false"/>
+            app-bar-display="true"/>
 </ofbiz-component>
