@@ -31,6 +31,7 @@ under the License.
         <auto-attributes include="pk" mode="OUT" optional="false"/>
         <auto-attributes include="nonpk" mode="IN" optional="true"/>
         <override name="name" optional="false"/>
+        <override name="isDeleted" default-value="N"/>
     </service>
     <service name="updateBatchNo" default-entity-name="InventoryBatchNo" engine="entity-auto" invoke="update" auth="true">
         <description>Update a Batch No</description>

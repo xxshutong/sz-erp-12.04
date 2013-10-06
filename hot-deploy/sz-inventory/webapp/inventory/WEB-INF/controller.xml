@@ -65,6 +65,15 @@ under the License.
         <response name="success" type="view" value="EditBatchNoLayer"/>
     </request-map>
 
+    <request-map uri="createBatchNo">
+        <security https="false" auth="false"/>
+        <event type="service" invoke="createBatchNo"/>
+        <response name="success" type="request-redirect" value="EditBatchNo">
+            <redirect-parameter name="id"/>
+        </response>
+        <response name="error" type="view" value="FindBatchNo"/>
+    </request-map>
+
     <!--&lt;!&ndash; Example Requests &ndash;&gt;-->
     <!--<request-map uri="FindExample"><security https="true" auth="true"/><response name="success" type="view" value="FindExample"/></request-map>-->
     <!--<request-map uri="EditExample"><security https="true" auth="true"/><response name="success" type="view" value="EditExample"/></request-map>-->

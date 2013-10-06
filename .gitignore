@@ -9,3 +9,4 @@ svninfo.ftl
 derby.properties
 runtime/logs/access*
 runtime/catalina/work/*
+runtime/test*.xml
