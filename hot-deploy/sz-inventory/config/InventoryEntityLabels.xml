@@ -19,6 +19,7 @@
     under the License.
 -->
 <resource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
     <property key="InventoryBatchNo.name">
         <value xml:lang="en">Batch No</value>
         <value xml:lang="zh">批号</value>

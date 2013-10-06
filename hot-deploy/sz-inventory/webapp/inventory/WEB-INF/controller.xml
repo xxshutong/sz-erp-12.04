@@ -60,6 +60,11 @@ under the License.
         <response name="success" type="view" value="ManageBatchNo"/>
     </request-map>
 
+    <request-map uri="EditBatchNoLayer">
+        <security https="false" auth="false"/>
+        <response name="success" type="view" value="EditBatchNoLayer"/>
+    </request-map>
+
     <!--&lt;!&ndash; Example Requests &ndash;&gt;-->
     <!--<request-map uri="FindExample"><security https="true" auth="true"/><response name="success" type="view" value="FindExample"/></request-map>-->
     <!--<request-map uri="EditExample"><security https="true" auth="true"/><response name="success" type="view" value="EditExample"/></request-map>-->
@@ -248,6 +253,7 @@ under the License.
     <!-- View Mappings-->
     <view-map name="main" type="screen" page="component://sz-inventory/widget/CommonScreens.xml#main"/>
     <view-map name="ManageBatchNo" type="screen" page="component://sz-inventory/widget/InventoryScreens.xml#ManageBatchNo"/>
+    <view-map name="EditBatchNoLayer" type="screen" page="component://sz-inventory/widget/InventoryScreens.xml#EditBatchNoLayer"/>
 
     <!--<view-map name="FindExample" type="screen" page="component://example/widget/example/ExampleScreens.xml#FindExample"/>-->
     <!--<view-map name="EditExample" type="screen" page="component://example/widget/example/ExampleScreens.xml#EditExample"/>-->

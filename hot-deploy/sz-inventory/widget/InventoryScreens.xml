@@ -15,9 +15,9 @@
                         <section>
                             <widgets>
                                 <decorator-screen name="FindScreenDecorator" location="component://common/widget/CommonScreens.xml">
-                                    <!--<decorator-section name="menu-bar">-->
-                                        <!--<container style="button-bar"><link target="EditExampleLayer" link-type="ajax-window" height="500" width="500" text="${uiLabelMap.ExampleNewExample}" style="buttontext create"/></container>-->
-                                    <!--</decorator-section>-->
+                                    <decorator-section name="menu-bar">
+                                        <container style="button-bar"><link target="EditBatchNoLayer" link-type="ajax-window" height="100" width="300" text="${uiLabelMap.NewBatchNo}" style="buttontext create"/></container>
+                                    </decorator-section>
                                     <decorator-section name="search-options">
                                         <include-form name="FindBatchNo" location="component://sz-inventory/widget/InventoryForms.xml"/>
                                     </decorator-section>
@@ -29,6 +29,22 @@
                         </section>
                     </decorator-section>
                 </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+
+    <screen name="EditBatchNoLayer">
+        <section>
+            <actions>
+                <property-map resource="InventoryUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="CommonUiLabels" map-name="uiLabelMap" global="true"/>
+                <set field="titleProperty" value="PageTitleEditBatchNo"/>
+                <set field="tabButtonItem" value="EditBatchNo"/>
+                <set field="id" from-field="parameters.id"/>
+                <entity-one entity-name="InventoryBatchNo" value-field="inventoryBatchNo"/>
+            </actions>
+            <widgets>
+                <include-form name="EditBatchNo" location="component://sz-inventory/widget/InventoryForms.xml"/>
             </widgets>
         </section>
     </screen>

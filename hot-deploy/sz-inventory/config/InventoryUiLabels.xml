@@ -32,7 +32,17 @@
         <value xml:lang="zh">库存管理</value>
     </property>
 
+    <property key="CommonId">
+        <value xml:lang="en">ID</value>
+        <value xml:lang="zh">编号</value>
+    </property>
 
+    <property key="CommonFind">
+        <value xml:lang="en">Search</value>
+        <value xml:lang="zh">查找</value>
+    </property>
+
+    <!-- 批号 -->
     <property key="BatchNoManager">
         <value xml:lang="en">Batch Number Management</value>
         <value xml:lang="zh">批号管理</value>
@@ -43,15 +53,26 @@
         <value xml:lang="zh">批号</value>
     </property>
 
-    <property key="CommonId">
+    <property key="NewBatchNo">
+        <value xml:lang="en">New Batch No</value>
+        <value xml:lang="zh">添加批号</value>
+    </property>
+
+    <property key="EditBatchNo">
+        <value xml:lang="en">Edit Batch No</value>
+        <value xml:lang="zh">编辑批号</value>
+    </property>
+
+    <property key="PageTitleEditBatchNo">
+        <value xml:lang="en">Add/Edit Batch No</value>
+        <value xml:lang="zh">添加/编辑 批号</value>
+    </property>
+
+    <property key="InventoryBatchNoId">
         <value xml:lang="en">ID</value>
         <value xml:lang="zh">编号</value>
     </property>
 
-    <property key="CommonFind">
-        <value xml:lang="en">Search</value>
-        <value xml:lang="zh">查找</value>
-    </property>
 
 
 
