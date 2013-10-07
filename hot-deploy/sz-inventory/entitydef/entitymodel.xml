@@ -81,6 +81,9 @@ under the License.
             <description>二等品数量</description>
         </field>
         <field name="id" type="id-ne"></field>
+        <field name="productId" type="id"></field>
+        <field name="batchNoId" type="id"></field>
+        <field name="machineOutputId" type="id"></field>
         <prim-key field="id"/>
         <relation type="one" rel-entity-name="InventoryProduct">
             <description>品名</description>
@@ -88,7 +91,7 @@ under the License.
         </relation>
         <relation type="one" rel-entity-name="InventoryBatchNo">
             <description>批号</description>
-            <key-map field-name="batchNo"/>
+            <key-map field-name="batchNoId"/>
         </relation>
         <relation type="one" rel-entity-name="InventoryMachineOutput">
             <description>指明该入库记录从属于哪个机台产出, 该字段一般在机台产量完成的时候批量指定</description>
@@ -111,6 +114,9 @@ under the License.
             <description>二等品数量</description>
         </field>
         <field name="id" type="id-ne"></field>
+        <field name="productId" type="id"></field>
+        <field name="batchNoId" type="id"></field>
+        <field name="customerId" type="id"></field>
         <prim-key field="id"/>
         <relation type="one" rel-entity-name="InventoryProduct">
             <description>品名</description>
@@ -118,7 +124,7 @@ under the License.
         </relation>
         <relation type="one" rel-entity-name="InventoryBatchNo">
             <description>批号</description>
-            <key-map field-name="batchNo"/>
+            <key-map field-name="batchNoId"/>
         </relation>
         <relation type="one" rel-entity-name="SzCustomer">
             <description>客户</description>
