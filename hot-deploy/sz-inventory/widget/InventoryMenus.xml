@@ -50,12 +50,12 @@ under the License.
         <!--</menu-item>-->
     </menu>
 
-    <!--<menu name="EditExample" extends="CommonTabBarMenu" extends-resource="component://common/widget/CommonMenus.xml">-->
-        <!--<menu-item name="EditExample" title="${uiLabelMap.ExampleExample}">-->
-            <!--<link target="EditExample">-->
-                <!--<parameter param-name="exampleId"/>-->
-            <!--</link>-->
-        <!--</menu-item>-->
+    <menu name="EditBatchNo" extends="CommonTabBarMenu" extends-resource="component://common/widget/CommonMenus.xml">
+        <menu-item name="EditBatchNo" title="${uiLabelMap.EditBatchNo}">
+            <link target="EditBatchNo">
+                <parameter param-name="id"/>
+            </link>
+        </menu-item>
         <!--<menu-item name="EditExampleItems" title="${uiLabelMap.CommonItems}">-->
             <!--<link target="EditExampleItems">-->
                 <!--<parameter param-name="exampleId"/>-->
@@ -66,7 +66,7 @@ under the License.
                 <!--<parameter param-name="exampleId"/>-->
             <!--</link>-->
         <!--</menu-item>-->
-    <!--</menu>-->
+    </menu>
 
     <!--<menu name="EditExampleFeature" extends="CommonTabBarMenu" extends-resource="component://common/widget/CommonMenus.xml">-->
         <!--<menu-item name="EditExampleFeature" title="${uiLabelMap.ExampleFeature}">-->

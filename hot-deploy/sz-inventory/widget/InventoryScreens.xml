@@ -48,4 +48,23 @@
             </widgets>
         </section>
     </screen>
+
+    <screen name="EditBatchNo">
+        <section>
+            <actions>
+                <set field="titleProperty" value="EditBatchNo"/>
+                <set field="tabButtonItem" value="EditBatchNo"/>
+                <set field="id" from-field="parameters.id"/>
+                <entity-one entity-name="InventoryBatchNo" value-field="inventoryBatchNo"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="CommonInventoryDecorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                        <include-form name="EditBatchNo" location="component://sz-inventory/widget/InventoryForms.xml"/>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+
 </screens>

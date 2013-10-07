@@ -60,6 +60,11 @@ under the License.
         <response name="success" type="view" value="ManageBatchNo"/>
     </request-map>
 
+    <request-map uri="EditBatchNo">
+        <security https="false" auth="false"/>
+        <response name="success" type="view" value="EditBatchNo"/>
+    </request-map>
+
     <request-map uri="EditBatchNoLayer">
         <security https="false" auth="false"/>
         <response name="success" type="view" value="EditBatchNoLayer"/>
@@ -72,6 +77,15 @@ under the License.
             <redirect-parameter name="id"/>
         </response>
         <response name="error" type="view" value="FindBatchNo"/>
+    </request-map>
+
+    <request-map uri="updateBatchNo">
+        <security https="false" auth="false"/>
+        <event type="service" invoke="updateBatchNo"/>
+        <response name="success" type="request-redirect" value="EditBatchNo">
+            <redirect-parameter name="id"/>
+        </response>
+        <response name="error" type="view" value="EditBatchNo"/>
     </request-map>
 
     <!--&lt;!&ndash; Example Requests &ndash;&gt;-->
@@ -262,6 +276,7 @@ under the License.
     <!-- View Mappings-->
     <view-map name="main" type="screen" page="component://sz-inventory/widget/CommonScreens.xml#main"/>
     <view-map name="ManageBatchNo" type="screen" page="component://sz-inventory/widget/InventoryScreens.xml#ManageBatchNo"/>
+    <view-map name="EditBatchNo" type="screen" page="component://sz-inventory/widget/InventoryScreens.xml#EditBatchNo"/>
     <view-map name="EditBatchNoLayer" type="screen" page="component://sz-inventory/widget/InventoryScreens.xml#EditBatchNoLayer"/>
 
     <!--<view-map name="FindExample" type="screen" page="component://example/widget/example/ExampleScreens.xml#FindExample"/>-->
