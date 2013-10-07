@@ -29,6 +29,9 @@ under the License.
         <field name="name" title="${uiLabelMap.InventoryBatchNoName}">
             <text-find/>
         </field>
+        <field name="isDeleted">
+            <hidden value="N"/>
+        </field>
         <field name="searchButton" title="${uiLabelMap.CommonFind}" widget-style="smallSubmit">
             <submit button-type="button" image-location="/images/icons/magnifier.png"/>
         </field>
