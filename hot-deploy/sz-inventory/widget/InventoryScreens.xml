@@ -53,14 +53,13 @@
     <screen name="EditBatchNo">
         <section>
             <actions>
-                <set field="headerItem" value="BatchNoItem"/>
                 <set field="titleProperty" value="EditBatchNo"/>
                 <set field="tabButtonItem" value="EditBatchNo"/>
                 <set field="id" from-field="parameters.id"/>
                 <entity-one entity-name="InventoryBatchNo" value-field="inventoryBatchNo"/>
             </actions>
             <widgets>
-                <decorator-screen name="CommonInventoryDecorator" location="${parameters.mainDecoratorLocation}">
+                <decorator-screen name="CommonInventoryBatchNoDecorator" location="${parameters.mainDecoratorLocation}">
                     <decorator-section name="body">
                         <include-form name="EditBatchNo" location="component://sz-inventory/widget/InventoryForms.xml"/>
                     </decorator-section>
@@ -126,7 +125,7 @@
                 <entity-one entity-name="InventoryProduct" value-field="inventoryProduct"/>
             </actions>
             <widgets>
-                <decorator-screen name="CommonInventoryDecorator" location="${parameters.mainDecoratorLocation}">
+                <decorator-screen name="CommonInventoryProductDecorator" location="${parameters.mainDecoratorLocation}">
                     <decorator-section name="body">
                         <include-form name="EditProduct" location="component://sz-inventory/widget/InventoryForms.xml"/>
                     </decorator-section>
@@ -192,7 +191,7 @@
                 <entity-one entity-name="SzCustomer" value-field="szCustomer"/>
             </actions>
             <widgets>
-                <decorator-screen name="CommonInventoryDecorator" location="${parameters.mainDecoratorLocation}">
+                <decorator-screen name="CommonInventoryCustomerDecorator" location="${parameters.mainDecoratorLocation}">
                     <decorator-section name="body">
                         <include-form name="EditCustomer" location="component://sz-inventory/widget/InventoryForms.xml"/>
                     </decorator-section>
@@ -258,7 +257,7 @@
                 <entity-one entity-name="InventoryInput" value-field="inventoryInput"/>
             </actions>
             <widgets>
-                <decorator-screen name="CommonInventoryDecorator" location="${parameters.mainDecoratorLocation}">
+                <decorator-screen name="CommonInventoryInputDecorator" location="${parameters.mainDecoratorLocation}">
                     <decorator-section name="body">
                         <include-form name="EditInput" location="component://sz-inventory/widget/InventoryForms.xml"/>
                     </decorator-section>

@@ -57,7 +57,8 @@ under the License.
         </section>
     </screen>
 
-    <screen name="CommonInventoryDecorator">
+    <!-- Batch No -->
+    <screen name="CommonInventoryBatchNoDecorator">
         <!-- The CommonInventoryDecorator screen decorates a small group of screens that all have
             something in common. It is decorated by the main-decorator screen. To see how the
             various decorators are combined to build a screen, view the page source of any
@@ -121,9 +122,162 @@ under the License.
                                 </section>
                                 <decorator-section-include name="body"/>
                             </widgets>
-                            <fail-widgets>
-                                <label style="h3">${uiLabelMap.ExampleViewPermissionError}</label>
-                            </fail-widgets>
+                            <!--<fail-widgets>-->
+                                <!--<label style="h3">${uiLabelMap.ExampleViewPermissionError}</label>-->
+                            <!--</fail-widgets>-->
+                        </section>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+
+    <!-- Input -->
+    <screen name="CommonInventoryProductDecorator">
+        <!-- The CommonInventoryDecorator screen decorates a small group of screens that all have
+            something in common. It is decorated by the main-decorator screen. To see how the
+            various decorators are combined to build a screen, view the page source of any
+            Example component screen. HTML comments indicate the start and end points of each
+            screen and decorator. -->
+        <section>
+            <actions>
+                <set field="headerItem" value="ProductItem"/>
+                <set field="id" from-field="parameters.id"/>
+                <entity-one entity-name="InventoryProduct" value-field="inventoryProduct"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="main-decorator">
+                    <decorator-section name="pre-body">
+                        <section>
+                            <condition>
+                                <and>
+                                    <!--<if-has-permission permission="EXAMPLE" action="_VIEW"/>-->
+                                    <not><if-empty field="inventoryProduct"/></not><!-- This is a check useful when only seed data are loaded -->
+                                </and>
+                            </condition>
+                            <widgets>
+                                <include-menu name="EditProduct" location="component://sz-inventory/widget/InventoryMenus.xml"/>
+                            </widgets>
+                        </section>
+                    </decorator-section>
+                    <decorator-section name="body">
+                        <section>
+                            <widgets>
+                                <section>
+                                    <condition>
+                                        <not><if-empty field="inventoryProduct"/></not><!-- This is a check useful when only seed data are loaded -->
+                                    </condition>
+                                    <widgets>
+                                        <container style="h1"><label>${uiLabelMap[titleProperty]} ${inventoryProduct.name} [${id}]</label></container>
+                                    </widgets>
+                                    <fail-widgets>
+                                        <container style="h1"><label>${uiLabelMap.NewProduct}</label></container>
+                                    </fail-widgets>
+                                </section>
+                                <decorator-section-include name="body"/>
+                            </widgets>
+                        </section>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+
+    <!-- Customer -->
+    <screen name="CommonInventoryCustomerDecorator">
+        <!-- The CommonInventoryCustomerDecorator screen decorates a small group of screens that all have
+            something in common. It is decorated by the main-decorator screen. To see how the
+            various decorators are combined to build a screen, view the page source of any
+            Example component screen. HTML comments indicate the start and end points of each
+            screen and decorator. -->
+        <section>
+            <actions>
+                <set field="headerItem" value="CustomerItem"/>
+                <set field="id" from-field="parameters.id"/>
+                <entity-one entity-name="SzCustomer" value-field="szCustomer"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="main-decorator">
+                    <decorator-section name="pre-body">
+                        <section>
+                            <condition>
+                                <and>
+                                    <!--<if-has-permission permission="EXAMPLE" action="_VIEW"/>-->
+                                    <not><if-empty field="szCustomer"/></not><!-- This is a check useful when only seed data are loaded -->
+                                </and>
+                            </condition>
+                            <widgets>
+                                <include-menu name="EditCustomer" location="component://sz-inventory/widget/InventoryMenus.xml"/>
+                            </widgets>
+                        </section>
+                    </decorator-section>
+                    <decorator-section name="body">
+                        <section>
+                            <widgets>
+                                <section>
+                                    <condition>
+                                        <not><if-empty field="szCustomer"/></not><!-- This is a check useful when only seed data are loaded -->
+                                    </condition>
+                                    <widgets>
+                                        <container style="h1"><label>${uiLabelMap[titleProperty]} ${szCustomer.name} [${id}]</label></container>
+                                    </widgets>
+                                    <fail-widgets>
+                                        <container style="h1"><label>${uiLabelMap.NewCustomer}</label></container>
+                                    </fail-widgets>
+                                </section>
+                                <decorator-section-include name="body"/>
+                            </widgets>
+                        </section>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+
+    <!-- Input -->
+    <screen name="CommonInventoryInputDecorator">
+        <!-- The CommonInventoryDecorator screen decorates a small group of screens that all have
+            something in common. It is decorated by the main-decorator screen. To see how the
+            various decorators are combined to build a screen, view the page source of any
+            Example component screen. HTML comments indicate the start and end points of each
+            screen and decorator. -->
+        <section>
+            <actions>
+                <set field="headerItem" value="InputItem"/>
+                <set field="id" from-field="parameters.id"/>
+                <entity-one entity-name="InventoryInput" value-field="inventoryInput"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="main-decorator">
+                    <decorator-section name="pre-body">
+                        <section>
+                            <condition>
+                                <and>
+                                    <!--<if-has-permission permission="EXAMPLE" action="_VIEW"/>-->
+                                    <not><if-empty field="inventoryInput"/></not><!-- This is a check useful when only seed data are loaded -->
+                                </and>
+                            </condition>
+                            <widgets>
+                                <include-menu name="EditInput" location="component://sz-inventory/widget/InventoryMenus.xml"/>
+                            </widgets>
+                        </section>
+                    </decorator-section>
+                    <decorator-section name="body">
+                        <section>
+                            <widgets>
+                                <section>
+                                    <condition>
+                                        <not><if-empty field="inventoryInput"/></not><!-- This is a check useful when only seed data are loaded -->
+                                    </condition>
+                                    <widgets>
+                                        <container style="h1"><label>${uiLabelMap.EditInput} [${id}]</label></container>
+                                    </widgets>
+                                    <fail-widgets>
+                                        <container style="h1"><label>${uiLabelMap.NewInput}</label></container>
+                                    </fail-widgets>
+                                </section>
+                                <decorator-section-include name="body"/>
+                            </widgets>
                         </section>
                     </decorator-section>
                 </decorator-screen>
