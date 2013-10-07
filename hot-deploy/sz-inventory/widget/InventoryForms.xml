@@ -123,4 +123,58 @@ under the License.
         <field name="submitButton" use-when="inventoryProduct!=null" title="${uiLabelMap.CommonUpdate}"><submit button-type="button"/></field>
     </form>
 
+    <!-- Customer -->
+    <form name="FindCustomer" type="single" target="ManageCustomer" default-entity-name="SzCustomer">
+        <field name="noConditionFind">
+            <hidden value="Y"/>
+            <!-- if this isn't there then with all fields empty no query will be done -->
+        </field>
+        <field name="no" title="${uiLabelMap.SzCustomerNo}">
+            <text-find/>
+        </field>
+        <field name="name" title="${uiLabelMap.SzCustomerName}">
+            <text-find/>
+        </field>
+        <field name="searchButton" title="${uiLabelMap.CommonFind}" widget-style="smallSubmit">
+            <submit button-type="button" image-location="/images/icons/magnifier.png"/>
+        </field>
+    </form>
+
+    <form name="ListCustomer" type="list" list-name="listIt" paginate-target="FindCustomer" default-entity-name="SzCustomer"
+          separate-columns="true"
+          odd-row-style="alternate-row" header-row-style="header-row-2" default-table-style="basic-table hover-bar">
+        <actions>
+            <service service-name="performFind" result-map="result" result-map-list="listIt">
+                <field-map field-name="inputFields" from-field="customerCtx"/>
+                <field-map field-name="entityName" value="SzCustomer"/>
+                <field-map field-name="orderBy" value="-id"/>
+                <field-map field-name="viewIndex" from-field="viewIndex"/>
+                <field-map field-name="viewSize" from-field="viewSize"/>
+            </service>
+        </actions>
+        <field name="id" title="${uiLabelMap.CommonId}">
+            <hyperlink also-hidden="false" description="${id}" target="EditCustomer">
+                <parameter param-name="id"/>
+            </hyperlink>
+        </field>
+        <field name="no" title="${uiLabelMap.SzCustomerNo}">
+            <display/>
+        </field>
+        <field name="name" title="${uiLabelMap.SzCustomerName}">
+            <display/>
+        </field>
+    </form>
+
+    <form name="EditCustomer" type="single" target="updateCustomer" title="" default-map-name="szCustomer" default-entity-name="SzCustomer">
+        <alt-target use-when="szCustomer==null" target="createCustomer"/>
+        <auto-fields-service service-name="updateCustomer"/>
+        <field use-when="szCustomer!=null" name="id" title="${uiLabelMap.SzCustomerId}" tooltip="${uiLabelMap.CommonNotModifRecreat}"><display/></field>
+        <field use-when="szCustomer==null @and id==null" name="id" title="${uiLabelMap.SzCustomerId}"><ignored/></field>
+        <field use-when="szCustomer==null @and id!=null" name="id" title="${uiLabelMap.SzCustomerId}"><display description="${uiLabelMap.CommonCannotBeFound}: [${id}]" also-hidden="false"/></field>
+        <field name="no" title="${uiLabelMap.SzCustomerNo}" required-field="true" widget-style="required"></field>
+        <field name="name" title="${uiLabelMap.SzCustomerName}" required-field="true" widget-style="required"></field>
+        <field name="submitButton" use-when="szCustomer==null" title="${uiLabelMap.CommonCreate}"><submit button-type="button"/></field>
+        <field name="submitButton" use-when="szCustomer!=null" title="${uiLabelMap.CommonUpdate}"><submit button-type="button"/></field>
+    </form>
+
 </forms>

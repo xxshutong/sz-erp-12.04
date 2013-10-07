@@ -68,7 +68,7 @@
         </section>
     </screen>
 
-    <!-- Batch No -->
+    <!-- Product -->
     <screen name="ManageProduct">
         <section>
             <actions>
@@ -128,6 +128,72 @@
                 <decorator-screen name="CommonInventoryDecorator" location="${parameters.mainDecoratorLocation}">
                     <decorator-section name="body">
                         <include-form name="EditProduct" location="component://sz-inventory/widget/InventoryForms.xml"/>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+
+    <!-- Customer -->
+    <screen name="ManageCustomer">
+        <section>
+            <actions>
+                <set field="headerItem" value="CustomerItem"/>
+                <set field="titleProperty" value="CustomerManager"/>
+                <set field="customerCtx" from-field="parameters"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                        <section>
+                            <widgets>
+                                <decorator-screen name="FindScreenDecorator" location="component://common/widget/CommonScreens.xml">
+                                    <decorator-section name="menu-bar">
+                                        <container style="button-bar"><link target="EditCustomerLayer" link-type="ajax-window" height="150" width="350" text="${uiLabelMap.NewCustomer}" style="buttontext create"/></container>
+                                    </decorator-section>
+                                    <decorator-section name="search-options">
+                                        <include-form name="FindCustomer" location="component://sz-inventory/widget/InventoryForms.xml"/>
+                                    </decorator-section>
+                                    <decorator-section name="search-results">
+                                        <include-form name="ListCustomer" location="component://sz-inventory/widget/InventoryForms.xml"/>
+                                    </decorator-section>
+                                </decorator-screen>
+                            </widgets>
+                        </section>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+
+    <screen name="EditCustomerLayer">
+        <section>
+            <actions>
+                <property-map resource="InventoryUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="CommonUiLabels" map-name="uiLabelMap" global="true"/>
+                <set field="titleProperty" value="PageTitleEditCustomer"/>
+                <set field="tabButtonItem" value="EditCustomer"/>
+                <set field="id" from-field="parameters.id"/>
+                <entity-one entity-name="SzCustomer" value-field="szCustomer"/>
+            </actions>
+            <widgets>
+                <include-form name="EditCustomer" location="component://sz-inventory/widget/InventoryForms.xml"/>
+            </widgets>
+        </section>
+    </screen>
+
+    <screen name="EditCustomer">
+        <section>
+            <actions>
+                <set field="titleProperty" value="EditCustomer"/>
+                <set field="tabButtonItem" value="EditCustomer"/>
+                <set field="id" from-field="parameters.id"/>
+                <entity-one entity-name="SzCustomer" value-field="szCustomer"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="CommonInventoryDecorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                        <include-form name="EditCustomer" location="component://sz-inventory/widget/InventoryForms.xml"/>
                     </decorator-section>
                 </decorator-screen>
             </widgets>

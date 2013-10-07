@@ -104,6 +104,42 @@
         <value xml:lang="zh">编号</value>
     </property>
 
+    <!-- 客户 -->
+    <property key="CustomerManager">
+        <value xml:lang="en">Customer Management</value>
+        <value xml:lang="zh">客户管理</value>
+    </property>
+
+    <property key="SzCustomerNo">
+        <value xml:lang="en">Customer No</value>
+        <value xml:lang="zh">客户编号</value>
+    </property>
+
+    <property key="SzCustomerName">
+        <value xml:lang="en">Customer Name</value>
+        <value xml:lang="zh">客户名称</value>
+    </property>
+
+    <property key="NewCustomer">
+        <value xml:lang="en">New Customer</value>
+        <value xml:lang="zh">添加客户</value>
+    </property>
+
+    <property key="EditCustomer">
+        <value xml:lang="en">Edit Customer</value>
+        <value xml:lang="zh">编辑客户</value>
+    </property>
+
+    <property key="PageTitleEditCustomer">
+        <value xml:lang="en">Add/Edit Customer</value>
+        <value xml:lang="zh">添加/编辑 客户</value>
+    </property>
+
+    <property key="SzCustomerId">
+        <value xml:lang="en">ID</value>
+        <value xml:lang="zh">编号</value>
+    </property>
+
 
 
 </resource>

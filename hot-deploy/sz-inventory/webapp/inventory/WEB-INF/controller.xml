@@ -119,6 +119,38 @@ under the License.
         <response name="error" type="view" value="EditProduct"/>
     </request-map>
 
+    <!-- Customer -->
+    <request-map uri="ManageCustomer">
+        <security https="false" auth="false"/>
+        <response name="success" type="view" value="ManageCustomer"/>
+    </request-map>
+
+    <request-map uri="EditCustomer">
+        <security https="false" auth="false"/>
+        <response name="success" type="view" value="EditCustomer"/>
+    </request-map>
+
+    <request-map uri="EditCustomerLayer">
+        <security https="false" auth="false"/>
+        <response name="success" type="view" value="EditCustomerLayer"/>
+    </request-map>
+
+    <request-map uri="createCustomer">
+        <security https="false" auth="false"/>
+        <event type="service" invoke="createCustomer"/>
+        <response name="success" type="request-redirect" value="ManageCustomer"/>
+        <response name="error" type="view" value="FindCustomer"/>
+    </request-map>
+
+    <request-map uri="updateCustomer">
+        <security https="false" auth="false"/>
+        <event type="service" invoke="updateCustomer"/>
+        <response name="success" type="request-redirect" value="EditCustomer">
+            <redirect-parameter name="id"/>
+        </response>
+        <response name="error" type="view" value="EditCustomer"/>
+    </request-map>
+
     <!--&lt;!&ndash; Example Requests &ndash;&gt;-->
     <!--<request-map uri="FindExample"><security https="true" auth="true"/><response name="success" type="view" value="FindExample"/></request-map>-->
     <!--<request-map uri="EditExample"><security https="true" auth="true"/><response name="success" type="view" value="EditExample"/></request-map>-->
@@ -313,6 +345,10 @@ under the License.
     <view-map name="ManageProduct" type="screen" page="component://sz-inventory/widget/InventoryScreens.xml#ManageProduct"/>
     <view-map name="EditProduct" type="screen" page="component://sz-inventory/widget/InventoryScreens.xml#EditProduct"/>
     <view-map name="EditProductLayer" type="screen" page="component://sz-inventory/widget/InventoryScreens.xml#EditProductLayer"/>
+
+    <view-map name="ManageCustomer" type="screen" page="component://sz-inventory/widget/InventoryScreens.xml#ManageCustomer"/>
+    <view-map name="EditCustomer" type="screen" page="component://sz-inventory/widget/InventoryScreens.xml#EditCustomer"/>
+    <view-map name="EditCustomerLayer" type="screen" page="component://sz-inventory/widget/InventoryScreens.xml#EditCustomerLayer"/>
 
     <!--<view-map name="FindExample" type="screen" page="component://example/widget/example/ExampleScreens.xml#FindExample"/>-->
     <!--<view-map name="EditExample" type="screen" page="component://example/widget/example/ExampleScreens.xml#EditExample"/>-->
