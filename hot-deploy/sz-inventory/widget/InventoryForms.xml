@@ -226,16 +226,16 @@ under the License.
             </hyperlink>
         </field>
         <field name="inputDate" title="${uiLabelMap.InventoryInputInputDate}">
-            <date-time type="date"/>
+            <display type="date"/>
         </field>
         <field name="machineNo" title="${uiLabelMap.InventoryInputMachineNo}">
             <display/>
         </field>
         <field name="productId" title="${uiLabelMap.InventoryProductName}">
-            <display-entity key-field-name="id" entity-name="InventoryProduct"/>
+            <display-entity key-field-name="id" entity-name="InventoryProduct" description="${name}"/>
         </field>
         <field name="batchNoId" title="${uiLabelMap.InventoryBatchNoName}">
-            <display-entity key-field-name="id" entity-name="InventoryBatchNo"/>
+            <display-entity key-field-name="id" entity-name="InventoryBatchNo" description="${name}"/>
         </field>
         <field name="superiorNumber" title="${uiLabelMap.InventoryInputSuperior}">
             <display default-value="${uiLabelMap.CommonNA}"/>
@@ -258,7 +258,9 @@ under the License.
         <field name="machineNo" title="${uiLabelMap.InventoryInputMachineNo}" required-field="true" widget-style="required">
             <text size="10"/>
         </field>
-        <field name="inputDate"><ignored/></field>
+        <field name="inputDate" title="${uiLabelMap.InventoryInputInputDate}">
+            <date-time type="date" default-value="${bsh: org.ofbiz.base.util.UtilDateTime.nowTimestamp()}"/>
+        </field>
         <field name="machineOutputId"><ignored/></field>
         <field name="productId" title="${uiLabelMap.InventoryProductName}" id-name="productId" widget-style="required">
             <drop-down allow-empty="false">

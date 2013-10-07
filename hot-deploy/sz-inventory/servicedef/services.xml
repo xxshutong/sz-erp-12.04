@@ -85,7 +85,7 @@ under the License.
         <override name="machine_no" optional="false"/>
         <override name="product_id" optional="false"/>
         <override name="batch_no_id" optional="false"/>
-        <!--<override name="inputDate" default-value="${bsh: org.ofbiz.base.util.UtilDateTime.nowTimestamp()}"/>-->
+        <!--<override name="inputDate" default-value="${org.ofbiz.base.util.UtilDateTime.nowTimestamp()}"/>-->
     </service>
     <service name="updateInput" default-entity-name="InventoryInput" engine="entity-auto" invoke="update" auth="true">
         <description>Update a input record</description>
