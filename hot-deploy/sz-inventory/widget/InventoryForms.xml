@@ -21,6 +21,7 @@ under the License.
 <forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/widget-form.xsd">
 
+    <!-- Batch No -->
     <form name="FindBatchNo" type="single" target="ManageBatchNo" default-entity-name="InventoryBatchNo">
         <field name="noConditionFind">
             <hidden value="Y"/>
@@ -69,6 +70,57 @@ under the License.
         <field name="isDeleted"><ignored/></field>
         <field name="submitButton" use-when="inventoryBatchNo==null" title="${uiLabelMap.CommonCreate}"><submit button-type="button"/></field>
         <field name="submitButton" use-when="inventoryBatchNo!=null" title="${uiLabelMap.CommonUpdate}"><submit button-type="button"/></field>
+    </form>
+
+    <!-- Product -->
+    <form name="FindProduct" type="single" target="ManageProduct" default-entity-name="InventoryProduct">
+        <field name="noConditionFind">
+            <hidden value="Y"/>
+            <!-- if this isn't there then with all fields empty no query will be done -->
+        </field>
+        <field name="name" title="${uiLabelMap.InventoryProductName}">
+            <text-find/>
+        </field>
+        <field name="isDeleted">
+            <hidden value="N"/>
+        </field>
+        <field name="searchButton" title="${uiLabelMap.CommonFind}" widget-style="smallSubmit">
+            <submit button-type="button" image-location="/images/icons/magnifier.png"/>
+        </field>
+    </form>
+
+    <form name="ListProduct" type="list" list-name="listIt" paginate-target="FindProduct" default-entity-name="InventoryProduct"
+          separate-columns="true"
+          odd-row-style="alternate-row" header-row-style="header-row-2" default-table-style="basic-table hover-bar">
+        <actions>
+            <service service-name="performFind" result-map="result" result-map-list="listIt">
+                <field-map field-name="inputFields" from-field="productCtx"/>
+                <field-map field-name="entityName" value="InventoryProduct"/>
+                <field-map field-name="orderBy" value="-id"/>
+                <field-map field-name="viewIndex" from-field="viewIndex"/>
+                <field-map field-name="viewSize" from-field="viewSize"/>
+            </service>
+        </actions>
+        <field name="id" title="${uiLabelMap.CommonId}">
+            <hyperlink also-hidden="false" description="${id}" target="EditProduct">
+                <parameter param-name="id"/>
+            </hyperlink>
+        </field>
+        <field name="name" title="${uiLabelMap.InventoryProductName}">
+            <display/>
+        </field>
+    </form>
+
+    <form name="EditProduct" type="single" target="updateProduct" title="" default-map-name="inventoryProduct" default-entity-name="InventoryProduct">
+        <alt-target use-when="inventoryProduct==null" target="createProduct"/>
+        <auto-fields-service service-name="updateProduct"/>
+        <field use-when="inventoryProduct!=null" name="id" title="${uiLabelMap.InventoryProductId}" tooltip="${uiLabelMap.CommonNotModifRecreat}"><display/></field>
+        <field use-when="inventoryProduct==null @and id==null" name="id" title="${uiLabelMap.InventoryProductId}"><ignored/></field>
+        <field use-when="inventoryProduct==null @and id!=null" name="id" title="${uiLabelMap.InventoryProductId}"><display description="${uiLabelMap.CommonCannotBeFound}: [${id}]" also-hidden="false"/></field>
+        <field name="name" title="${uiLabelMap.InventoryProductName}" required-field="true" widget-style="required"></field>
+        <field name="isDeleted"><ignored/></field>
+        <field name="submitButton" use-when="inventoryProduct==null" title="${uiLabelMap.CommonCreate}"><submit button-type="button"/></field>
+        <field name="submitButton" use-when="inventoryProduct!=null" title="${uiLabelMap.CommonUpdate}"><submit button-type="button"/></field>
     </form>
 
 </forms>

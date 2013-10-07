@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <screens xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/widget-screen.xsd">
-    <!-- list all examples in a tabular format -->
+
+    <!-- Batch No -->
     <screen name="ManageBatchNo">
         <section>
             <actions>
@@ -61,6 +62,72 @@
                 <decorator-screen name="CommonInventoryDecorator" location="${parameters.mainDecoratorLocation}">
                     <decorator-section name="body">
                         <include-form name="EditBatchNo" location="component://sz-inventory/widget/InventoryForms.xml"/>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+
+    <!-- Batch No -->
+    <screen name="ManageProduct">
+        <section>
+            <actions>
+                <set field="headerItem" value="ProductItem"/>
+                <set field="titleProperty" value="ProductManager"/>
+                <set field="productCtx" from-field="parameters"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                        <section>
+                            <widgets>
+                                <decorator-screen name="FindScreenDecorator" location="component://common/widget/CommonScreens.xml">
+                                    <decorator-section name="menu-bar">
+                                        <container style="button-bar"><link target="EditProductLayer" link-type="ajax-window" height="100" width="300" text="${uiLabelMap.NewProduct}" style="buttontext create"/></container>
+                                    </decorator-section>
+                                    <decorator-section name="search-options">
+                                        <include-form name="FindProduct" location="component://sz-inventory/widget/InventoryForms.xml"/>
+                                    </decorator-section>
+                                    <decorator-section name="search-results">
+                                        <include-form name="ListProduct" location="component://sz-inventory/widget/InventoryForms.xml"/>
+                                    </decorator-section>
+                                </decorator-screen>
+                            </widgets>
+                        </section>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+
+    <screen name="EditProductLayer">
+        <section>
+            <actions>
+                <property-map resource="InventoryUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="CommonUiLabels" map-name="uiLabelMap" global="true"/>
+                <set field="titleProperty" value="PageTitleEditProduct"/>
+                <set field="tabButtonItem" value="EditProduct"/>
+                <set field="id" from-field="parameters.id"/>
+                <entity-one entity-name="InventoryProduct" value-field="inventoryProduct"/>
+            </actions>
+            <widgets>
+                <include-form name="EditProduct" location="component://sz-inventory/widget/InventoryForms.xml"/>
+            </widgets>
+        </section>
+    </screen>
+
+    <screen name="EditProduct">
+        <section>
+            <actions>
+                <set field="titleProperty" value="EditProduct"/>
+                <set field="tabButtonItem" value="EditProduct"/>
+                <set field="id" from-field="parameters.id"/>
+                <entity-one entity-name="InventoryProduct" value-field="inventoryProduct"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="CommonInventoryDecorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                        <include-form name="EditProduct" location="component://sz-inventory/widget/InventoryForms.xml"/>
                     </decorator-section>
                 </decorator-screen>
             </widgets>

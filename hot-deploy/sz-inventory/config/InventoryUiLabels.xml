@@ -73,6 +73,36 @@
         <value xml:lang="zh">编号</value>
     </property>
 
+    <!-- 品名 -->
+    <property key="ProductManager">
+        <value xml:lang="en">Goods Name Management</value>
+        <value xml:lang="zh">品名管理</value>
+    </property>
+
+    <property key="InventoryProductName">
+        <value xml:lang="en">Goods Name</value>
+        <value xml:lang="zh">品名</value>
+    </property>
+
+    <property key="NewProduct">
+        <value xml:lang="en">New Goods Name</value>
+        <value xml:lang="zh">添加品名</value>
+    </property>
+
+    <property key="EditProduct">
+        <value xml:lang="en">Edit Goods Name</value>
+        <value xml:lang="zh">编辑品名</value>
+    </property>
+
+    <property key="PageTitleEditProduct">
+        <value xml:lang="en">Add/Edit Goods Name</value>
+        <value xml:lang="zh">添加/编辑 品名</value>
+    </property>
+
+    <property key="InventoryProductId">
+        <value xml:lang="en">ID</value>
+        <value xml:lang="zh">编号</value>
+    </property>
 
 
 
