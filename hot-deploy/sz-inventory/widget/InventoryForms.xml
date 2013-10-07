@@ -44,7 +44,7 @@ under the License.
             <service service-name="performFind" result-map="result" result-map-list="listIt">
                 <field-map field-name="inputFields" from-field="batchNoCtx"/>
                 <field-map field-name="entityName" value="InventoryBatchNo"/>
-                <field-map field-name="orderBy" from-field="parameters.sortField"/>
+                <field-map field-name="orderBy" value="-id"/>
                 <field-map field-name="viewIndex" from-field="viewIndex"/>
                 <field-map field-name="viewSize" from-field="viewSize"/>
             </service>
@@ -54,7 +54,7 @@ under the License.
                 <parameter param-name="id"/>
             </hyperlink>
         </field>
-        <field name="name" title="${uiLabelMap.InventoryBatchNoName}" sort-field="true">
+        <field name="name" title="${uiLabelMap.InventoryBatchNoName}">
             <display/>
         </field>
     </form>
