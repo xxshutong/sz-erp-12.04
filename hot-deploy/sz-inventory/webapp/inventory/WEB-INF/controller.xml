@@ -73,9 +73,7 @@ under the License.
     <request-map uri="createBatchNo">
         <security https="false" auth="false"/>
         <event type="service" invoke="createBatchNo"/>
-        <response name="success" type="request-redirect" value="EditBatchNo">
-            <redirect-parameter name="id"/>
-        </response>
+        <response name="success" type="request-redirect" value="ManageBatchNo"/>
         <response name="error" type="view" value="FindBatchNo"/>
     </request-map>
 
