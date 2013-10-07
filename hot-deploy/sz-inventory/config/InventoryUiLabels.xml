@@ -42,6 +42,11 @@
         <value xml:lang="zh">查找</value>
     </property>
 
+    <property key="CommonNA">
+        <value xml:lang="en">N/A</value>
+        <value xml:lang="zh">无</value>
+    </property>
+
     <!-- 批号 -->
     <property key="BatchNoManager">
         <value xml:lang="en">Batch Number Management</value>
@@ -140,6 +145,55 @@
         <value xml:lang="zh">编号</value>
     </property>
 
+    <!-- 入库管理 -->
+    <property key="InputManager">
+        <value xml:lang="en">Warehouse Management</value>
+        <value xml:lang="zh">入库管理</value>
+    </property>
 
+    <property key="NewInput">
+        <value xml:lang="en">New Warehouse</value>
+        <value xml:lang="zh">添加入库记录</value>
+    </property>
+
+    <property key="EditInput">
+        <value xml:lang="en">Edit Warehouse</value>
+        <value xml:lang="zh">编辑入库记录</value>
+    </property>
+
+    <property key="PageTitleEditInput">
+        <value xml:lang="en">Add/Edit Warehouse</value>
+        <value xml:lang="zh">添加/编辑 入库记录</value>
+    </property>
+
+    <property key="InventoryInputId">
+        <value xml:lang="en">ID</value>
+        <value xml:lang="zh">编号</value>
+    </property>
+
+    <property key="InventoryInputMachineNo">
+        <value xml:lang="en">Machine No</value>
+        <value xml:lang="zh">机号</value>
+    </property>
+
+    <property key="InventoryInputInputDate">
+        <value xml:lang="en">Input Date</value>
+        <value xml:lang="zh">录入日期</value>
+    </property>
+
+    <property key="InventoryInputSuperior">
+        <value xml:lang="en">Superior Number</value>
+        <value xml:lang="zh">优等品</value>
+    </property>
+
+    <property key="InventoryInputGradeA">
+        <value xml:lang="en">Grade A Number</value>
+        <value xml:lang="zh">一等品</value>
+    </property>
+
+    <property key="InventoryInputGradeB">
+        <value xml:lang="en">Grade B Number</value>
+        <value xml:lang="zh">二等品</value>
+    </property>
 
 </resource>

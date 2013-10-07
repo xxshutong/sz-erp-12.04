@@ -25,7 +25,8 @@ under the License.
     <version>1.0</version>
 
     <!-- Batch No & Related Services -->
-    <service name="createBatchNo" default-entity-name="InventoryBatchNo" engine="entity-auto" invoke="create" auth="true">
+    <service name="createBatchNo" default-entity-name="InventoryBatchNo" engine="entity-auto" invoke="create"
+             auth="true">
         <description>Create a new Batch No</description>
         <!--<permission-service service-name="exampleGenericPermission" main-action="CREATE"/>-->
         <auto-attributes include="pk" mode="OUT" optional="false"/>
@@ -33,7 +34,8 @@ under the License.
         <override name="name" optional="false"/>
         <override name="isDeleted" default-value="N"/>
     </service>
-    <service name="updateBatchNo" default-entity-name="InventoryBatchNo" engine="entity-auto" invoke="update" auth="true">
+    <service name="updateBatchNo" default-entity-name="InventoryBatchNo" engine="entity-auto" invoke="update"
+             auth="true">
         <description>Update a Batch No</description>
         <!--<permission-service service-name="exampleGenericPermission" main-action="UPDATE"/>-->
         <auto-attributes include="pk" mode="IN" optional="false"/>
@@ -41,7 +43,8 @@ under the License.
     </service>
 
     <!-- Product & Related Services -->
-    <service name="createProduct" default-entity-name="InventoryProduct" engine="entity-auto" invoke="create" auth="true">
+    <service name="createProduct" default-entity-name="InventoryProduct" engine="entity-auto" invoke="create"
+             auth="true">
         <description>Create a new Product</description>
         <!--<permission-service service-name="exampleGenericPermission" main-action="CREATE"/>-->
         <auto-attributes include="pk" mode="OUT" optional="false"/>
@@ -49,7 +52,8 @@ under the License.
         <override name="name" optional="false"/>
         <override name="isDeleted" default-value="N"/>
     </service>
-    <service name="updateProduct" default-entity-name="InventoryProduct" engine="entity-auto" invoke="update" auth="true">
+    <service name="updateProduct" default-entity-name="InventoryProduct" engine="entity-auto" invoke="update"
+             auth="true">
         <description>Update a Product</description>
         <!--<permission-service service-name="exampleGenericPermission" main-action="UPDATE"/>-->
         <auto-attributes include="pk" mode="IN" optional="false"/>
@@ -72,4 +76,21 @@ under the License.
         <auto-attributes include="nonpk" mode="IN" optional="true"/>
     </service>
 
+    <!-- Input & Related Services -->
+    <service name="createInput" default-entity-name="InventoryInput" engine="entity-auto" invoke="create" auth="true">
+        <description>Create a new input record</description>
+        <!--<permission-service service-name="exampleGenericPermission" main-action="CREATE"/>-->
+        <auto-attributes include="pk" mode="OUT" optional="false"/>
+        <auto-attributes include="nonpk" mode="IN" optional="true"/>
+        <override name="machine_no" optional="false"/>
+        <override name="product_id" optional="false"/>
+        <override name="batch_no_id" optional="false"/>
+        <!--<override name="inputDate" default-value="${bsh: org.ofbiz.base.util.UtilDateTime.nowTimestamp()}"/>-->
+    </service>
+    <service name="updateInput" default-entity-name="InventoryInput" engine="entity-auto" invoke="update" auth="true">
+        <description>Update a input record</description>
+        <!--<permission-service service-name="exampleGenericPermission" main-action="UPDATE"/>-->
+        <auto-attributes include="pk" mode="IN" optional="false"/>
+        <auto-attributes include="nonpk" mode="IN" optional="true"/>
+    </service>
 </services>

@@ -177,4 +177,117 @@ under the License.
         <field name="submitButton" use-when="szCustomer!=null" title="${uiLabelMap.CommonUpdate}"><submit button-type="button"/></field>
     </form>
 
+    <!-- Input -->
+    <form name="FindInput" type="single" target="ManageInput" default-entity-name="InventoryInput">
+        <field name="noConditionFind">
+            <hidden value="Y"/>
+            <!-- if this isn't there then with all fields empty no query will be done -->
+        </field>
+        <field name="machineNo" title="${uiLabelMap.InventoryInputMachineNo}">
+            <text-find/>
+        </field>
+        <field name="inputDate" title="${uiLabelMap.InventoryInputInputDate}">
+            <date-time type="date"/>
+        </field>
+        <field name="productId" title="${uiLabelMap.InventoryProductName}">
+            <drop-down allow-empty="true" current-description="">
+                <entity-options description="${name}" key-field-name="id" entity-name="InventoryProduct">
+                    <entity-order-by field-name="name"/>
+                </entity-options>
+            </drop-down>
+        </field>
+        <field name="batchNoId" title="${uiLabelMap.InventoryBatchNoName}">
+            <drop-down allow-empty="true" current-description="">
+                <entity-options description="${name}" key-field-name="id" entity-name="InventoryBatchNo">
+                    <entity-order-by field-name="name"/>
+                </entity-options>
+            </drop-down>
+        </field>
+        <field name="searchButton" title="${uiLabelMap.CommonFind}" widget-style="smallSubmit">
+            <submit button-type="button" image-location="/images/icons/magnifier.png"/>
+        </field>
+    </form>
+
+    <form name="ListInput" type="list" list-name="listIt" paginate-target="FindInput" default-entity-name="InventoryInput"
+          separate-columns="true"
+          odd-row-style="alternate-row" header-row-style="header-row-2" default-table-style="basic-table hover-bar">
+        <actions>
+            <service service-name="performFind" result-map="result" result-map-list="listIt">
+                <field-map field-name="inputFields" from-field="inputCtx"/>
+                <field-map field-name="entityName" value="InventoryInput"/>
+                <field-map field-name="orderBy" value="-id"/>
+                <field-map field-name="viewIndex" from-field="viewIndex"/>
+                <field-map field-name="viewSize" from-field="viewSize"/>
+            </service>
+        </actions>
+        <field name="id" title="${uiLabelMap.CommonId}">
+            <hyperlink also-hidden="false" description="${id}" target="EditInput">
+                <parameter param-name="id"/>
+            </hyperlink>
+        </field>
+        <field name="inputDate" title="${uiLabelMap.InventoryInputInputDate}">
+            <date-time type="date"/>
+        </field>
+        <field name="machineNo" title="${uiLabelMap.InventoryInputMachineNo}">
+            <display/>
+        </field>
+        <field name="productId" title="${uiLabelMap.InventoryProductName}">
+            <display-entity key-field-name="id" entity-name="InventoryProduct"/>
+        </field>
+        <field name="batchNoId" title="${uiLabelMap.InventoryBatchNoName}">
+            <display-entity key-field-name="id" entity-name="InventoryBatchNo"/>
+        </field>
+        <field name="superiorNumber" title="${uiLabelMap.InventoryInputSuperior}">
+            <display default-value="${uiLabelMap.CommonNA}"/>
+        </field>
+        <field name="gradeANumber" title="${uiLabelMap.InventoryInputGradeA}">
+            <display default-value="${uiLabelMap.CommonNA}"/>
+        </field>
+        <field name="gradeBNumber" title="${uiLabelMap.InventoryInputGradeB}">
+            <display default-value="${uiLabelMap.CommonNA}"/>
+        </field>
+    </form>
+
+    <form name="EditInput" type="single" target="updateInput" title="" default-map-name="inventoryInput" default-entity-name="InventoryInput">
+        <alt-target use-when="inventoryInput==null" target="createInput"/>
+        <auto-fields-service service-name="updateInput"/>
+        <field use-when="inventoryInput!=null" name="id" title="${uiLabelMap.InventoryInputId}" tooltip="${uiLabelMap.CommonNotModifRecreat}"><display/></field>
+        <field use-when="inventoryInput==null @and id==null" name="id" title="${uiLabelMap.InventoryInputId}"><ignored/></field>
+        <field use-when="inventoryInput==null @and id!=null" name="id" title="${uiLabelMap.InventoryInputId}"><display description="${uiLabelMap.CommonCannotBeFound}: [${id}]" also-hidden="false"/></field>
+
+        <field name="machineNo" title="${uiLabelMap.InventoryInputMachineNo}" required-field="true" widget-style="required">
+            <text size="10"/>
+        </field>
+        <field name="inputDate"><ignored/></field>
+        <field name="machineOutputId"><ignored/></field>
+        <field name="productId" title="${uiLabelMap.InventoryProductName}" id-name="productId" widget-style="required">
+            <drop-down allow-empty="false">
+                <!-- this is a neat feature, but not good for the type because the user would have to know the possible types in order to enter at least the first letter, so leaving it out by default; just uncomment to enable: <auto-complete/> -->
+                <entity-options entity-name="InventoryProduct" description="${name}" key-field-name="id">
+                    <entity-order-by field-name="name"/>
+                </entity-options>
+            </drop-down>
+        </field>
+        <field name="batchNoId" title="${uiLabelMap.InventoryBatchNoName}" id-name="batchNoId" widget-style="required">
+            <drop-down allow-empty="false">
+                <!-- this is a neat feature, but not good for the type because the user would have to know the possible types in order to enter at least the first letter, so leaving it out by default; just uncomment to enable: <auto-complete/> -->
+                <entity-options entity-name="InventoryBatchNo" description="${name}" key-field-name="id">
+                    <entity-order-by field-name="name"/>
+                </entity-options>
+            </drop-down>
+        </field>
+        <field name="superiorNumber" title="${uiLabelMap.InventoryInputSuperior}">
+            <text size="20"/>
+        </field>
+        <field name="gradeANumber" title="${uiLabelMap.InventoryInputGradeA}">
+            <text size="20"/>
+        </field>
+        <field name="gradeBNumber" title="${uiLabelMap.InventoryInputGradeB}">
+            <text size="20"/>
+        </field>
+
+        <field name="submitButton" use-when="inventoryInput==null" title="${uiLabelMap.CommonCreate}"><submit button-type="button"/></field>
+        <field name="submitButton" use-when="inventoryInput!=null" title="${uiLabelMap.CommonUpdate}"><submit button-type="button"/></field>
+    </form>
+
 </forms>
