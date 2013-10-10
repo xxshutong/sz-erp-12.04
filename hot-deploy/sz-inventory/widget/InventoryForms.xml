@@ -186,7 +186,7 @@ under the License.
         <field name="machineNo" title="${uiLabelMap.InventoryInputMachineNo}">
             <text-find/>
         </field>
-        <field name="inputDate" title="${uiLabelMap.InventoryInputInputDate}">
+        <field name="inputDate" title="${uiLabelMap.InventoryInputDate}">
             <date-time type="date"/>
         </field>
         <field name="productId" title="${uiLabelMap.InventoryProductName}">
@@ -225,7 +225,7 @@ under the License.
                 <parameter param-name="id"/>
             </hyperlink>
         </field>
-        <field name="inputDate" title="${uiLabelMap.InventoryInputInputDate}">
+        <field name="inputDate" title="${uiLabelMap.InventoryInputDate}">
             <display type="date"/>
         </field>
         <field name="machineNo" title="${uiLabelMap.InventoryInputMachineNo}">
@@ -237,13 +237,13 @@ under the License.
         <field name="batchNoId" title="${uiLabelMap.InventoryBatchNoName}">
             <display-entity key-field-name="id" entity-name="InventoryBatchNo" description="${name}"/>
         </field>
-        <field name="superiorNumber" title="${uiLabelMap.InventoryInputSuperior}">
+        <field name="superiorNumber" title="${uiLabelMap.InventorySuperior}">
             <display default-value="${uiLabelMap.CommonNA}"/>
         </field>
-        <field name="gradeANumber" title="${uiLabelMap.InventoryInputGradeA}">
+        <field name="gradeANumber" title="${uiLabelMap.InventoryGradeA}">
             <display default-value="${uiLabelMap.CommonNA}"/>
         </field>
-        <field name="gradeBNumber" title="${uiLabelMap.InventoryInputGradeB}">
+        <field name="gradeBNumber" title="${uiLabelMap.InventoryGradeB}">
             <display default-value="${uiLabelMap.CommonNA}"/>
         </field>
     </form>
@@ -258,7 +258,7 @@ under the License.
         <field name="machineNo" title="${uiLabelMap.InventoryInputMachineNo}" required-field="true" widget-style="required">
             <text size="10"/>
         </field>
-        <field name="inputDate" title="${uiLabelMap.InventoryInputInputDate}">
+        <field name="inputDate" title="${uiLabelMap.InventoryInputDate}">
             <date-time type="date" default-value="${bsh: org.ofbiz.base.util.UtilDateTime.nowTimestamp()}"/>
         </field>
         <field name="machineOutputId"><ignored/></field>
@@ -278,18 +278,147 @@ under the License.
                 </entity-options>
             </drop-down>
         </field>
-        <field name="superiorNumber" title="${uiLabelMap.InventoryInputSuperior}">
+        <field name="superiorNumber" title="${uiLabelMap.InventorySuperior}">
             <text size="20"/>
         </field>
-        <field name="gradeANumber" title="${uiLabelMap.InventoryInputGradeA}">
+        <field name="gradeANumber" title="${uiLabelMap.InventoryGradeA}">
             <text size="20"/>
         </field>
-        <field name="gradeBNumber" title="${uiLabelMap.InventoryInputGradeB}">
+        <field name="gradeBNumber" title="${uiLabelMap.InventoryGradeB}">
             <text size="20"/>
         </field>
 
         <field name="submitButton" use-when="inventoryInput==null" title="${uiLabelMap.CommonCreate}"><submit button-type="button"/></field>
         <field name="submitButton" use-when="inventoryInput!=null" title="${uiLabelMap.CommonUpdate}"><submit button-type="button"/></field>
+    </form>
+
+    <!-- Output -->
+    <form name="FindOutput" type="single" target="ManageOutput" default-entity-name="InventoryOutput">
+        <field name="noConditionFind">
+            <hidden value="Y"/>
+            <!-- if this isn't there then with all fields empty no query will be done -->
+        </field>
+        <field name="OutputDate" title="${uiLabelMap.InventoryInputDate}">
+            <date-time type="date"/>
+        </field>
+        <field name="customerId" title="${uiLabelMap.SzCustomerNo}">
+            <drop-down allow-empty="true" current-description="">
+                <entity-options description="${no}" key-field-name="id" entity-name="SzCustomer">
+                    <entity-order-by field-name="no"/>
+                </entity-options>
+            </drop-down>
+        </field>
+        <field name="productId" title="${uiLabelMap.InventoryProductName}">
+            <drop-down allow-empty="true" current-description="">
+                <entity-options description="${name}" key-field-name="id" entity-name="InventoryProduct">
+                    <entity-order-by field-name="name"/>
+                </entity-options>
+            </drop-down>
+        </field>
+        <field name="batchNoId" title="${uiLabelMap.InventoryBatchNoName}">
+            <drop-down allow-empty="true" current-description="">
+                <entity-options description="${name}" key-field-name="id" entity-name="InventoryBatchNo">
+                    <entity-order-by field-name="name"/>
+                </entity-options>
+            </drop-down>
+        </field>
+        <field name="searchButton" title="${uiLabelMap.CommonFind}" widget-style="smallSubmit">
+            <submit button-type="button" image-location="/images/icons/magnifier.png"/>
+        </field>
+    </form>
+
+    <form name="ListOutput" type="list" list-name="listIt" paginate-target="FindOutput" default-entity-name="InventoryOutput"
+          separate-columns="true"
+          odd-row-style="alternate-row" header-row-style="header-row-2" default-table-style="basic-table hover-bar">
+        <actions>
+            <service service-name="performFind" result-map="result" result-map-list="listIt">
+                <field-map field-name="inputFields" from-field="outputCtx"/>
+                <field-map field-name="entityName" value="InventoryOutput"/>
+                <field-map field-name="orderBy" value="-id"/>
+                <field-map field-name="viewIndex" from-field="viewIndex"/>
+                <field-map field-name="viewSize" from-field="viewSize"/>
+            </service>
+        </actions>
+        <field name="id" title="${uiLabelMap.CommonId}">
+            <hyperlink also-hidden="false" description="${id}" target="EditOutput">
+                <parameter param-name="id"/>
+            </hyperlink>
+        </field>
+        <field name="outputDate" title="${uiLabelMap.InventoryInputDate}">
+            <display type="date"/>
+        </field>
+        <field name="codeNumber" title="${uiLabelMap.CodeNumber}">
+            <display/>
+        </field>
+        <field name="customerId" title="${uiLabelMap.SzCustomerNo}">
+            <display-entity key-field-name="id" entity-name="SzCustomer" description="${no}"/>
+        </field>
+        <field name="productId" title="${uiLabelMap.InventoryProductName}">
+            <display-entity key-field-name="id" entity-name="InventoryProduct" description="${name}"/>
+        </field>
+        <field name="batchNoId" title="${uiLabelMap.InventoryBatchNoName}">
+            <display-entity key-field-name="id" entity-name="InventoryBatchNo" description="${name}"/>
+        </field>
+        <field name="superiorNumber" title="${uiLabelMap.InventorySuperior}">
+            <display default-value="${uiLabelMap.CommonNA}"/>
+        </field>
+        <field name="gradeANumber" title="${uiLabelMap.InventoryGradeA}">
+            <display default-value="${uiLabelMap.CommonNA}"/>
+        </field>
+        <field name="gradeBNumber" title="${uiLabelMap.InventoryGradeB}">
+            <display default-value="${uiLabelMap.CommonNA}"/>
+        </field>
+    </form>
+
+    <form name="EditOutput" type="single" target="updateOutput" title="" default-map-name="inventoryOutput" default-entity-name="InventoryOutput">
+        <alt-target use-when="inventoryOutput==null" target="createOutput"/>
+        <auto-fields-service service-name="updateOutput"/>
+        <field use-when="inventoryOutput!=null" name="id" title="${uiLabelMap.InventoryOutputId}" tooltip="${uiLabelMap.CommonNotModifRecreat}"><display/></field>
+        <field use-when="inventoryOutput==null @and id==null" name="id" title="${uiLabelMap.InventoryOutputId}"><ignored/></field>
+        <field use-when="inventoryOutput==null @and id!=null" name="id" title="${uiLabelMap.InventoryOutputId}"><display description="${uiLabelMap.CommonCannotBeFound}: [${id}]" also-hidden="false"/></field>
+
+        <field name="outputDate" title="${uiLabelMap.InventoryInputDate}">
+            <date-time type="date" default-value="${bsh: org.ofbiz.base.util.UtilDateTime.nowTimestamp()}"/>
+        </field>
+        <field name="codeNumber" title="${uiLabelMap.CodeNumber}">
+            <text size="40"/>
+        </field>
+        <field name="customerId" title="${uiLabelMap.SzCustomerNo}" id-name="customerId" widget-style="required">
+            <drop-down allow-empty="false">
+                <!-- this is a neat feature, but not good for the type because the user would have to know the possible types in order to enter at least the first letter, so leaving it out by default; just uncomment to enable: <auto-complete/> -->
+                <entity-options entity-name="SzCustomer" description="${no}" key-field-name="id">
+                    <entity-order-by field-name="no"/>
+                </entity-options>
+            </drop-down>
+        </field>
+        <field name="productId" title="${uiLabelMap.InventoryProductName}" id-name="productId" widget-style="required">
+            <drop-down allow-empty="false">
+                <!-- this is a neat feature, but not good for the type because the user would have to know the possible types in order to enter at least the first letter, so leaving it out by default; just uncomment to enable: <auto-complete/> -->
+                <entity-options entity-name="InventoryProduct" description="${name}" key-field-name="id">
+                    <entity-order-by field-name="name"/>
+                </entity-options>
+            </drop-down>
+        </field>
+        <field name="batchNoId" title="${uiLabelMap.InventoryBatchNoName}" id-name="batchNoId" widget-style="required">
+            <drop-down allow-empty="false">
+                <!-- this is a neat feature, but not good for the type because the user would have to know the possible types in order to enter at least the first letter, so leaving it out by default; just uncomment to enable: <auto-complete/> -->
+                <entity-options entity-name="InventoryBatchNo" description="${name}" key-field-name="id">
+                    <entity-order-by field-name="name"/>
+                </entity-options>
+            </drop-down>
+        </field>
+        <field name="superiorNumber" title="${uiLabelMap.InventorySuperior}">
+            <text size="20"/>
+        </field>
+        <field name="gradeANumber" title="${uiLabelMap.InventoryGradeA}">
+            <text size="20"/>
+        </field>
+        <field name="gradeBNumber" title="${uiLabelMap.InventoryGradeB}">
+            <text size="20"/>
+        </field>
+
+        <field name="submitButton" use-when="inventoryOutput==null" title="${uiLabelMap.CommonCreate}"><submit button-type="button"/></field>
+        <field name="submitButton" use-when="inventoryOutput!=null" title="${uiLabelMap.CommonUpdate}"><submit button-type="button"/></field>
     </form>
 
 </forms>

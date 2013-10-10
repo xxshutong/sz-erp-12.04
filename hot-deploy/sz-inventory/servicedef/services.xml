@@ -93,4 +93,21 @@ under the License.
         <auto-attributes include="pk" mode="IN" optional="false"/>
         <auto-attributes include="nonpk" mode="IN" optional="true"/>
     </service>
+
+    <!-- Output & Related Services -->
+    <service name="createOutput" default-entity-name="InventoryOutput" engine="entity-auto" invoke="create" auth="true">
+        <description>Create a new Output record</description>
+        <!--<permission-service service-name="exampleGenericPermission" main-action="CREATE"/>-->
+        <auto-attributes include="pk" mode="OUT" optional="false"/>
+        <auto-attributes include="nonpk" mode="IN" optional="true"/>
+        <override name="product_id" optional="false"/>
+        <override name="batch_no_id" optional="false"/>
+        <!--<override name="OutputDate" default-value="${org.ofbiz.base.util.UtilDateTime.nowTimestamp()}"/>-->
+    </service>
+    <service name="updateOutput" default-entity-name="InventoryOutput" engine="entity-auto" invoke="update" auth="true">
+        <description>Update a Output record</description>
+        <!--<permission-service service-name="exampleGenericPermission" main-action="UPDATE"/>-->
+        <auto-attributes include="pk" mode="IN" optional="false"/>
+        <auto-attributes include="nonpk" mode="IN" optional="true"/>
+    </service>
 </services>

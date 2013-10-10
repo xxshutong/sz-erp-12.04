@@ -176,24 +176,50 @@
         <value xml:lang="zh">机号</value>
     </property>
 
-    <property key="InventoryInputInputDate">
+    <property key="InventoryInputDate">
         <value xml:lang="en">Input Date</value>
         <value xml:lang="zh">录入日期</value>
     </property>
 
-    <property key="InventoryInputSuperior">
+    <property key="InventorySuperior">
         <value xml:lang="en">Superior Number</value>
         <value xml:lang="zh">优等品</value>
     </property>
 
-    <property key="InventoryInputGradeA">
+    <property key="InventoryGradeA">
         <value xml:lang="en">Grade A Number</value>
         <value xml:lang="zh">一等品</value>
     </property>
 
-    <property key="InventoryInputGradeB">
+    <property key="InventoryGradeB">
         <value xml:lang="en">Grade B Number</value>
         <value xml:lang="zh">二等品</value>
+    </property>
+
+    <!-- 出库管理 -->
+    <property key="OutputManager">
+        <value xml:lang="en">Ex-warehouse Management</value>
+        <value xml:lang="zh">出库管理</value>
+    </property>
+
+    <property key="NewOutput">
+        <value xml:lang="en">New Ex-warehouse</value>
+        <value xml:lang="zh">添加出库记录</value>
+    </property>
+
+    <property key="EditOutput">
+        <value xml:lang="en">Edit Ex-warehouse</value>
+        <value xml:lang="zh">编辑出库记录</value>
+    </property>
+
+    <property key="PageTitleEditOutput">
+        <value xml:lang="en">Add/Edit Ex-warehouse</value>
+        <value xml:lang="zh">添加/编辑 出库记录</value>
+    </property>
+
+    <property key="CodeNumber">
+        <value xml:lang="en">Code Number</value>
+        <value xml:lang="zh">码单</value>
     </property>
 
 </resource>

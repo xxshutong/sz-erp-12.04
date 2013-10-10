@@ -25,6 +25,9 @@ under the License.
         <menu-item name="InputItem" title="${uiLabelMap.InputManager}">
             <link target="ManageInput"/>
         </menu-item>
+        <menu-item name="OutputItem" title="${uiLabelMap.OutputManager}">
+            <link target="ManageOutput"/>
+        </menu-item>
         <menu-item name="BatchNoItem" title="${uiLabelMap.BatchNoManager}">
             <link target="ManageBatchNo"/>
         </menu-item>
@@ -105,6 +108,14 @@ under the License.
     <menu name="EditInput" extends="CommonTabBarMenu" extends-resource="component://common/widget/CommonMenus.xml">
         <menu-item name="EditInput" title="${uiLabelMap.EditInput}">
             <link target="EditInput">
+                <parameter param-name="id"/>
+            </link>
+        </menu-item>
+    </menu>
+
+    <menu name="EditOutput" extends="CommonTabBarMenu" extends-resource="component://common/widget/CommonMenus.xml">
+        <menu-item name="EditOutput" title="${uiLabelMap.EditOutput}">
+            <link target="EditOutput">
                 <parameter param-name="id"/>
             </link>
         </menu-item>

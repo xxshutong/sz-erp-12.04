@@ -182,6 +182,39 @@ under the License.
         </response>
         <response name="error" type="view" value="EditInput"/>
     </request-map>
+
+    <!-- Output -->
+    <request-map uri="ManageOutput">
+        <security https="false" auth="false"/>
+        <response name="success" type="view" value="ManageOutput"/>
+    </request-map>
+
+    <request-map uri="EditOutput">
+        <security https="false" auth="false"/>
+        <response name="success" type="view" value="EditOutput"/>
+    </request-map>
+
+    <request-map uri="EditOutputLayer">
+        <security https="false" auth="false"/>
+        <response name="success" type="view" value="EditOutputLayer"/>
+    </request-map>
+
+    <request-map uri="createOutput">
+        <security https="false" auth="false"/>
+        <event type="service" invoke="createOutput"/>
+        <response name="success" type="request-redirect" value="ManageOutput"/>
+        <response name="error" type="view" value="FindOutput"/>
+    </request-map>
+
+    <request-map uri="updateOutput">
+        <security https="false" auth="false"/>
+        <event type="service" invoke="updateOutput"/>
+        <response name="success" type="request-redirect" value="EditOutput">
+            <redirect-parameter name="id"/>
+        </response>
+        <response name="error" type="view" value="EditOutput"/>
+    </request-map>
+
     <!--&lt;!&ndash; Example Requests &ndash;&gt;-->
     <!--<request-map uri="FindExample"><security https="true" auth="true"/><response name="success" type="view" value="FindExample"/></request-map>-->
     <!--<request-map uri="EditExample"><security https="true" auth="true"/><response name="success" type="view" value="EditExample"/></request-map>-->
@@ -384,6 +417,10 @@ under the License.
     <view-map name="ManageInput" type="screen" page="component://sz-inventory/widget/InventoryScreens.xml#ManageInput"/>
     <view-map name="EditInput" type="screen" page="component://sz-inventory/widget/InventoryScreens.xml#EditInput"/>
     <view-map name="EditInputLayer" type="screen" page="component://sz-inventory/widget/InventoryScreens.xml#EditInputLayer"/>
+
+    <view-map name="ManageOutput" type="screen" page="component://sz-inventory/widget/InventoryScreens.xml#ManageOutput"/>
+    <view-map name="EditOutput" type="screen" page="component://sz-inventory/widget/InventoryScreens.xml#EditOutput"/>
+    <view-map name="EditOutputLayer" type="screen" page="component://sz-inventory/widget/InventoryScreens.xml#EditOutputLayer"/>
 
     <!--<view-map name="FindExample" type="screen" page="component://example/widget/example/ExampleScreens.xml#FindExample"/>-->
     <!--<view-map name="EditExample" type="screen" page="component://example/widget/example/ExampleScreens.xml#EditExample"/>-->

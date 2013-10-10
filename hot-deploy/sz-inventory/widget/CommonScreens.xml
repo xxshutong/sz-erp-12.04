@@ -132,7 +132,7 @@ under the License.
         </section>
     </screen>
 
-    <!-- Input -->
+    <!-- Product -->
     <screen name="CommonInventoryProductDecorator">
         <!-- The CommonInventoryDecorator screen decorates a small group of screens that all have
             something in common. It is decorated by the main-decorator screen. To see how the
@@ -274,6 +274,57 @@ under the License.
                                     </widgets>
                                     <fail-widgets>
                                         <container style="h1"><label>${uiLabelMap.NewInput}</label></container>
+                                    </fail-widgets>
+                                </section>
+                                <decorator-section-include name="body"/>
+                            </widgets>
+                        </section>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+
+    <!-- Output -->
+    <screen name="CommonInventoryOutputDecorator">
+        <!-- The CommonInventoryDecorator screen decorates a small group of screens that all have
+            something in common. It is decorated by the main-decorator screen. To see how the
+            various decorators are combined to build a screen, view the page source of any
+            Example component screen. HTML comments indicate the start and end points of each
+            screen and decorator. -->
+        <section>
+            <actions>
+                <set field="headerItem" value="OutputItem"/>
+                <set field="id" from-field="parameters.id"/>
+                <entity-one entity-name="InventoryOutput" value-field="inventoryOutput"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="main-decorator">
+                    <decorator-section name="pre-body">
+                        <section>
+                            <condition>
+                                <and>
+                                    <!--<if-has-permission permission="EXAMPLE" action="_VIEW"/>-->
+                                    <not><if-empty field="inventoryOutput"/></not><!-- This is a check useful when only seed data are loaded -->
+                                </and>
+                            </condition>
+                            <widgets>
+                                <include-menu name="EditOutput" location="component://sz-inventory/widget/InventoryMenus.xml"/>
+                            </widgets>
+                        </section>
+                    </decorator-section>
+                    <decorator-section name="body">
+                        <section>
+                            <widgets>
+                                <section>
+                                    <condition>
+                                        <not><if-empty field="inventoryOutput"/></not><!-- This is a check useful when only seed data are loaded -->
+                                    </condition>
+                                    <widgets>
+                                        <container style="h1"><label>${uiLabelMap.EditOutput} [${id}]</label></container>
+                                    </widgets>
+                                    <fail-widgets>
+                                        <container style="h1"><label>${uiLabelMap.NewOutput}</label></container>
                                     </fail-widgets>
                                 </section>
                                 <decorator-section-include name="body"/>
