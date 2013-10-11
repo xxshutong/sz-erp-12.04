@@ -38,7 +38,8 @@ under the License.
         </field>
     </form>
 
-    <form name="ListBatchNo" type="list" list-name="listIt" paginate-target="FindBatchNo" default-entity-name="InventoryBatchNo"
+    <form name="ListBatchNo" type="list" list-name="listIt" paginate-target="FindBatchNo"
+          default-entity-name="InventoryBatchNo"
           separate-columns="true"
           odd-row-style="alternate-row" header-row-style="header-row-2" default-table-style="basic-table hover-bar">
         <actions>
@@ -60,16 +61,31 @@ under the License.
         </field>
     </form>
 
-    <form name="EditBatchNo" type="single" target="updateBatchNo" title="" default-map-name="inventoryBatchNo" default-entity-name="InventoryBatchNo">
+    <form name="EditBatchNo" type="single" target="updateBatchNo" title="" default-map-name="inventoryBatchNo"
+          default-entity-name="InventoryBatchNo">
         <alt-target use-when="inventoryBatchNo==null" target="createBatchNo"/>
         <auto-fields-service service-name="updateBatchNo"/>
-        <field use-when="inventoryBatchNo!=null" name="id" title="${uiLabelMap.InventoryBatchNoId}" tooltip="${uiLabelMap.CommonNotModifRecreat}"><display/></field>
-        <field use-when="inventoryBatchNo==null @and id==null" name="id" title="${uiLabelMap.InventoryBatchNoId}"><ignored/></field>
-        <field use-when="inventoryBatchNo==null @and id!=null" name="id" title="${uiLabelMap.InventoryBatchNoId}"><display description="${uiLabelMap.CommonCannotBeFound}: [${id}]" also-hidden="false"/></field>
-        <field name="name" title="${uiLabelMap.InventoryBatchNoName}" required-field="true" widget-style="required"></field>
-        <field name="isDeleted"><ignored/></field>
-        <field name="submitButton" use-when="inventoryBatchNo==null" title="${uiLabelMap.CommonCreate}"><submit button-type="button"/></field>
-        <field name="submitButton" use-when="inventoryBatchNo!=null" title="${uiLabelMap.CommonUpdate}"><submit button-type="button"/></field>
+        <field use-when="inventoryBatchNo!=null" name="id" title="${uiLabelMap.InventoryBatchNoId}"
+               tooltip="${uiLabelMap.CommonNotModifRecreat}">
+            <display/>
+        </field>
+        <field use-when="inventoryBatchNo==null @and id==null" name="id" title="${uiLabelMap.InventoryBatchNoId}">
+            <ignored/>
+        </field>
+        <field use-when="inventoryBatchNo==null @and id!=null" name="id" title="${uiLabelMap.InventoryBatchNoId}">
+            <display description="${uiLabelMap.CommonCannotBeFound}: [${id}]" also-hidden="false"/>
+        </field>
+        <field name="name" title="${uiLabelMap.InventoryBatchNoName}" required-field="true"
+               widget-style="required"></field>
+        <field name="isDeleted">
+            <ignored/>
+        </field>
+        <field name="submitButton" use-when="inventoryBatchNo==null" title="${uiLabelMap.CommonCreate}">
+            <submit button-type="button"/>
+        </field>
+        <field name="submitButton" use-when="inventoryBatchNo!=null" title="${uiLabelMap.CommonUpdate}">
+            <submit button-type="button"/>
+        </field>
     </form>
 
     <!-- Product -->
@@ -89,7 +105,8 @@ under the License.
         </field>
     </form>
 
-    <form name="ListProduct" type="list" list-name="listIt" paginate-target="FindProduct" default-entity-name="InventoryProduct"
+    <form name="ListProduct" type="list" list-name="listIt" paginate-target="FindProduct"
+          default-entity-name="InventoryProduct"
           separate-columns="true"
           odd-row-style="alternate-row" header-row-style="header-row-2" default-table-style="basic-table hover-bar">
         <actions>
@@ -111,16 +128,31 @@ under the License.
         </field>
     </form>
 
-    <form name="EditProduct" type="single" target="updateProduct" title="" default-map-name="inventoryProduct" default-entity-name="InventoryProduct">
+    <form name="EditProduct" type="single" target="updateProduct" title="" default-map-name="inventoryProduct"
+          default-entity-name="InventoryProduct">
         <alt-target use-when="inventoryProduct==null" target="createProduct"/>
         <auto-fields-service service-name="updateProduct"/>
-        <field use-when="inventoryProduct!=null" name="id" title="${uiLabelMap.InventoryProductId}" tooltip="${uiLabelMap.CommonNotModifRecreat}"><display/></field>
-        <field use-when="inventoryProduct==null @and id==null" name="id" title="${uiLabelMap.InventoryProductId}"><ignored/></field>
-        <field use-when="inventoryProduct==null @and id!=null" name="id" title="${uiLabelMap.InventoryProductId}"><display description="${uiLabelMap.CommonCannotBeFound}: [${id}]" also-hidden="false"/></field>
-        <field name="name" title="${uiLabelMap.InventoryProductName}" required-field="true" widget-style="required"></field>
-        <field name="isDeleted"><ignored/></field>
-        <field name="submitButton" use-when="inventoryProduct==null" title="${uiLabelMap.CommonCreate}"><submit button-type="button"/></field>
-        <field name="submitButton" use-when="inventoryProduct!=null" title="${uiLabelMap.CommonUpdate}"><submit button-type="button"/></field>
+        <field use-when="inventoryProduct!=null" name="id" title="${uiLabelMap.InventoryProductId}"
+               tooltip="${uiLabelMap.CommonNotModifRecreat}">
+            <display/>
+        </field>
+        <field use-when="inventoryProduct==null @and id==null" name="id" title="${uiLabelMap.InventoryProductId}">
+            <ignored/>
+        </field>
+        <field use-when="inventoryProduct==null @and id!=null" name="id" title="${uiLabelMap.InventoryProductId}">
+            <display description="${uiLabelMap.CommonCannotBeFound}: [${id}]" also-hidden="false"/>
+        </field>
+        <field name="name" title="${uiLabelMap.InventoryProductName}" required-field="true"
+               widget-style="required"></field>
+        <field name="isDeleted">
+            <ignored/>
+        </field>
+        <field name="submitButton" use-when="inventoryProduct==null" title="${uiLabelMap.CommonCreate}">
+            <submit button-type="button"/>
+        </field>
+        <field name="submitButton" use-when="inventoryProduct!=null" title="${uiLabelMap.CommonUpdate}">
+            <submit button-type="button"/>
+        </field>
     </form>
 
     <!-- Customer -->
@@ -140,7 +172,8 @@ under the License.
         </field>
     </form>
 
-    <form name="ListCustomer" type="list" list-name="listIt" paginate-target="FindCustomer" default-entity-name="SzCustomer"
+    <form name="ListCustomer" type="list" list-name="listIt" paginate-target="FindCustomer"
+          default-entity-name="SzCustomer"
           separate-columns="true"
           odd-row-style="alternate-row" header-row-style="header-row-2" default-table-style="basic-table hover-bar">
         <actions>
@@ -165,16 +198,28 @@ under the License.
         </field>
     </form>
 
-    <form name="EditCustomer" type="single" target="updateCustomer" title="" default-map-name="szCustomer" default-entity-name="SzCustomer">
+    <form name="EditCustomer" type="single" target="updateCustomer" title="" default-map-name="szCustomer"
+          default-entity-name="SzCustomer">
         <alt-target use-when="szCustomer==null" target="createCustomer"/>
         <auto-fields-service service-name="updateCustomer"/>
-        <field use-when="szCustomer!=null" name="id" title="${uiLabelMap.SzCustomerId}" tooltip="${uiLabelMap.CommonNotModifRecreat}"><display/></field>
-        <field use-when="szCustomer==null @and id==null" name="id" title="${uiLabelMap.SzCustomerId}"><ignored/></field>
-        <field use-when="szCustomer==null @and id!=null" name="id" title="${uiLabelMap.SzCustomerId}"><display description="${uiLabelMap.CommonCannotBeFound}: [${id}]" also-hidden="false"/></field>
+        <field use-when="szCustomer!=null" name="id" title="${uiLabelMap.SzCustomerId}"
+               tooltip="${uiLabelMap.CommonNotModifRecreat}">
+            <display/>
+        </field>
+        <field use-when="szCustomer==null @and id==null" name="id" title="${uiLabelMap.SzCustomerId}">
+            <ignored/>
+        </field>
+        <field use-when="szCustomer==null @and id!=null" name="id" title="${uiLabelMap.SzCustomerId}">
+            <display description="${uiLabelMap.CommonCannotBeFound}: [${id}]" also-hidden="false"/>
+        </field>
         <field name="no" title="${uiLabelMap.SzCustomerNo}" required-field="true" widget-style="required"></field>
         <field name="name" title="${uiLabelMap.SzCustomerName}" required-field="true" widget-style="required"></field>
-        <field name="submitButton" use-when="szCustomer==null" title="${uiLabelMap.CommonCreate}"><submit button-type="button"/></field>
-        <field name="submitButton" use-when="szCustomer!=null" title="${uiLabelMap.CommonUpdate}"><submit button-type="button"/></field>
+        <field name="submitButton" use-when="szCustomer==null" title="${uiLabelMap.CommonCreate}">
+            <submit button-type="button"/>
+        </field>
+        <field name="submitButton" use-when="szCustomer!=null" title="${uiLabelMap.CommonUpdate}">
+            <submit button-type="button"/>
+        </field>
     </form>
 
     <!-- Input -->
@@ -208,7 +253,8 @@ under the License.
         </field>
     </form>
 
-    <form name="ListInput" type="list" list-name="listIt" paginate-target="FindInput" default-entity-name="InventoryInput"
+    <form name="ListInput" type="list" list-name="listIt" paginate-target="FindInput"
+          default-entity-name="InventoryInput"
           separate-columns="true"
           odd-row-style="alternate-row" header-row-style="header-row-2" default-table-style="basic-table hover-bar">
         <actions>
@@ -248,20 +294,31 @@ under the License.
         </field>
     </form>
 
-    <form name="EditInput" type="single" target="updateInput" title="" default-map-name="inventoryInput" default-entity-name="InventoryInput">
+    <form name="EditInput" type="single" target="updateInput" title="" default-map-name="inventoryInput"
+          default-entity-name="InventoryInput">
         <alt-target use-when="inventoryInput==null" target="createInput"/>
         <auto-fields-service service-name="updateInput"/>
-        <field use-when="inventoryInput!=null" name="id" title="${uiLabelMap.InventoryInputId}" tooltip="${uiLabelMap.CommonNotModifRecreat}"><display/></field>
-        <field use-when="inventoryInput==null @and id==null" name="id" title="${uiLabelMap.InventoryInputId}"><ignored/></field>
-        <field use-when="inventoryInput==null @and id!=null" name="id" title="${uiLabelMap.InventoryInputId}"><display description="${uiLabelMap.CommonCannotBeFound}: [${id}]" also-hidden="false"/></field>
+        <field use-when="inventoryInput!=null" name="id" title="${uiLabelMap.InventoryInputId}"
+               tooltip="${uiLabelMap.CommonNotModifRecreat}">
+            <display/>
+        </field>
+        <field use-when="inventoryInput==null @and id==null" name="id" title="${uiLabelMap.InventoryInputId}">
+            <ignored/>
+        </field>
+        <field use-when="inventoryInput==null @and id!=null" name="id" title="${uiLabelMap.InventoryInputId}">
+            <display description="${uiLabelMap.CommonCannotBeFound}: [${id}]" also-hidden="false"/>
+        </field>
 
-        <field name="machineNo" title="${uiLabelMap.InventoryInputMachineNo}" required-field="true" widget-style="required">
+        <field name="machineNo" title="${uiLabelMap.InventoryInputMachineNo}" required-field="true"
+               widget-style="required">
             <text size="10"/>
         </field>
         <field name="inputDate" title="${uiLabelMap.InventoryInputDate}">
             <date-time type="date" default-value="${bsh: org.ofbiz.base.util.UtilDateTime.nowTimestamp()}"/>
         </field>
-        <field name="machineOutputId"><ignored/></field>
+        <field name="machineOutputId">
+            <ignored/>
+        </field>
         <field name="productId" title="${uiLabelMap.InventoryProductName}" id-name="productId" widget-style="required">
             <drop-down allow-empty="false">
                 <!-- this is a neat feature, but not good for the type because the user would have to know the possible types in order to enter at least the first letter, so leaving it out by default; just uncomment to enable: <auto-complete/> -->
@@ -288,8 +345,12 @@ under the License.
             <text size="20"/>
         </field>
 
-        <field name="submitButton" use-when="inventoryInput==null" title="${uiLabelMap.CommonCreate}"><submit button-type="button"/></field>
-        <field name="submitButton" use-when="inventoryInput!=null" title="${uiLabelMap.CommonUpdate}"><submit button-type="button"/></field>
+        <field name="submitButton" use-when="inventoryInput==null" title="${uiLabelMap.CommonCreate}">
+            <submit button-type="button"/>
+        </field>
+        <field name="submitButton" use-when="inventoryInput!=null" title="${uiLabelMap.CommonUpdate}">
+            <submit button-type="button"/>
+        </field>
     </form>
 
     <!-- Output -->
@@ -327,7 +388,8 @@ under the License.
         </field>
     </form>
 
-    <form name="ListOutput" type="list" list-name="listIt" paginate-target="FindOutput" default-entity-name="InventoryOutput"
+    <form name="ListOutput" type="list" list-name="listIt" paginate-target="FindOutput"
+          default-entity-name="InventoryOutput"
           separate-columns="true"
           odd-row-style="alternate-row" header-row-style="header-row-2" default-table-style="basic-table hover-bar">
         <actions>
@@ -370,12 +432,20 @@ under the License.
         </field>
     </form>
 
-    <form name="EditOutput" type="single" target="updateOutput" title="" default-map-name="inventoryOutput" default-entity-name="InventoryOutput">
+    <form name="EditOutput" type="single" target="updateOutput" title="" default-map-name="inventoryOutput"
+          default-entity-name="InventoryOutput">
         <alt-target use-when="inventoryOutput==null" target="createOutput"/>
         <auto-fields-service service-name="updateOutput"/>
-        <field use-when="inventoryOutput!=null" name="id" title="${uiLabelMap.InventoryOutputId}" tooltip="${uiLabelMap.CommonNotModifRecreat}"><display/></field>
-        <field use-when="inventoryOutput==null @and id==null" name="id" title="${uiLabelMap.InventoryOutputId}"><ignored/></field>
-        <field use-when="inventoryOutput==null @and id!=null" name="id" title="${uiLabelMap.InventoryOutputId}"><display description="${uiLabelMap.CommonCannotBeFound}: [${id}]" also-hidden="false"/></field>
+        <field use-when="inventoryOutput!=null" name="id" title="${uiLabelMap.InventoryOutputId}"
+               tooltip="${uiLabelMap.CommonNotModifRecreat}">
+            <display/>
+        </field>
+        <field use-when="inventoryOutput==null @and id==null" name="id" title="${uiLabelMap.InventoryOutputId}">
+            <ignored/>
+        </field>
+        <field use-when="inventoryOutput==null @and id!=null" name="id" title="${uiLabelMap.InventoryOutputId}">
+            <display description="${uiLabelMap.CommonCannotBeFound}: [${id}]" also-hidden="false"/>
+        </field>
 
         <field name="outputDate" title="${uiLabelMap.InventoryInputDate}">
             <date-time type="date" default-value="${bsh: org.ofbiz.base.util.UtilDateTime.nowTimestamp()}"/>
@@ -417,8 +487,143 @@ under the License.
             <text size="20"/>
         </field>
 
-        <field name="submitButton" use-when="inventoryOutput==null" title="${uiLabelMap.CommonCreate}"><submit button-type="button"/></field>
-        <field name="submitButton" use-when="inventoryOutput!=null" title="${uiLabelMap.CommonUpdate}"><submit button-type="button"/></field>
+        <field name="submitButton" use-when="inventoryOutput==null" title="${uiLabelMap.CommonCreate}">
+            <submit button-type="button"/>
+        </field>
+        <field name="submitButton" use-when="inventoryOutput!=null" title="${uiLabelMap.CommonUpdate}">
+            <submit button-type="button"/>
+        </field>
+    </form>
+
+    <!-- Machine Output -->
+    <form name="FindMachineOutput" type="single" target="ManageMachineOutput"
+          default-entity-name="InventoryMachineOutput">
+        <field name="noConditionFind">
+            <hidden value="Y"/>
+            <!-- if this isn't there then with all fields empty no query will be done -->
+        </field>
+        <field name="isCompleted">
+            <hidden value="N"/>
+        </field>
+        <field name="machineNo" title="${uiLabelMap.InventoryInputMachineNo}">
+            <text size="20"/>
+        </field>
+        <field name="productId" title="${uiLabelMap.InventoryProductName}">
+            <drop-down allow-empty="true" current-description="">
+                <entity-options description="${name}" key-field-name="id" entity-name="InventoryProduct">
+                    <entity-order-by field-name="name"/>
+                </entity-options>
+            </drop-down>
+        </field>
+        <field name="batchNoId" title="${uiLabelMap.InventoryBatchNoName}">
+            <drop-down allow-empty="true" current-description="">
+                <entity-options description="${name}" key-field-name="id" entity-name="InventoryBatchNo">
+                    <entity-order-by field-name="name"/>
+                </entity-options>
+            </drop-down>
+        </field>
+        <field name="searchButton" title="${uiLabelMap.CommonFind}" widget-style="smallSubmit">
+            <submit button-type="button" image-location="/images/icons/magnifier.png"/>
+        </field>
+    </form>
+
+    <form name="ListMachineOutput" type="list" list-name="listIt" paginate-target="FindMachineOutput"
+          default-entity-name="InventoryMachineOutput"
+          separate-columns="true"
+          odd-row-style="alternate-row" header-row-style="header-row-2" default-table-style="basic-table hover-bar">
+        <actions>
+            <service service-name="performFind" result-map="result" result-map-list="listIt">
+                <field-map field-name="inputFields" from-field="machineOutputCtx"/>
+                <field-map field-name="entityName" value="InventoryMachineOutput"/>
+                <field-map field-name="orderBy" value="-id"/>
+                <field-map field-name="viewIndex" from-field="viewIndex"/>
+                <field-map field-name="viewSize" from-field="viewSize"/>
+            </service>
+        </actions>
+        <field name="id" title="${uiLabelMap.CommonId}">
+            <hyperlink also-hidden="false" description="${id}" target="EditMachineOutput">
+                <parameter param-name="id"/>
+            </hyperlink>
+        </field>
+        <field name="machineNo" title="${uiLabelMap.InventoryInputMachineNo}">
+            <display/>
+        </field>
+        <field name="productId" title="${uiLabelMap.InventoryProductName}">
+            <display-entity key-field-name="id" entity-name="InventoryProduct" description="${name}"/>
+        </field>
+        <field name="batchNoId" title="${uiLabelMap.InventoryBatchNoName}">
+            <display-entity key-field-name="id" entity-name="InventoryBatchNo" description="${name}"/>
+        </field>
+        <field name="beamAmount" title="${uiLabelMap.BeamAmount}">
+            <display/>
+        </field>
+        <field name="outputAmount" title="${uiLabelMap.OutputAmount}">
+            <display default-value="0"/>
+        </field>
+        <field name="isCompleted" title="${uiLabelMap.CompleteFlag}">
+            <display/>
+        </field>
+    </form>
+
+    <form name="EditMachineOutput" type="single" target="updateMachineOutput" title=""
+          default-map-name="inventoryMachineOutput" default-entity-name="InventoryMachineOutput">
+        <alt-target use-when="inventoryMachineOutput==null" target="createMachineOutput"/>
+        <auto-fields-service service-name="updateMachineOutput"/>
+        <field use-when="inventoryMachineOutput!=null" name="id" title="${uiLabelMap.InventoryMachineOutputId}"
+               tooltip="${uiLabelMap.CommonNotModifRecreat}">
+            <display/>
+        </field>
+        <field use-when="inventoryMachineOutput==null @and id==null" name="id"
+               title="${uiLabelMap.InventoryMachineOutputId}">
+            <ignored/>
+        </field>
+        <field use-when="inventoryMachineOutput==null @and id!=null" name="id"
+               title="${uiLabelMap.InventoryMachineOutputId}">
+            <display description="${uiLabelMap.CommonCannotBeFound}: [${id}]" also-hidden="false"/>
+        </field>
+
+        <field name="outputAmount">
+            <ignored/>
+        </field>
+        <field name="isCompleted">
+            <hidden value="N"/>
+        </field>
+        <field name="completeDate">
+            <ignored/>
+        </field>
+        <field name="wovenShrinkage">
+            <ignored/>
+        </field>
+
+        <field name="machineNo" title="${uiLabelMap.InventoryInputMachineNo}">
+            <text size="30"/>
+        </field>
+        <field name="productId" title="${uiLabelMap.InventoryProductName}" id-name="productId" widget-style="required">
+            <drop-down allow-empty="false">
+                <!-- this is a neat feature, but not good for the type because the user would have to know the possible types in order to enter at least the first letter, so leaving it out by default; just uncomment to enable: <auto-complete/> -->
+                <entity-options entity-name="InventoryProduct" description="${name}" key-field-name="id">
+                    <entity-order-by field-name="name"/>
+                </entity-options>
+            </drop-down>
+        </field>
+        <field name="batchNoId" title="${uiLabelMap.InventoryBatchNoName}" id-name="batchNoId" widget-style="required">
+            <drop-down allow-empty="false">
+                <!-- this is a neat feature, but not good for the type because the user would have to know the possible types in order to enter at least the first letter, so leaving it out by default; just uncomment to enable: <auto-complete/> -->
+                <entity-options entity-name="InventoryBatchNo" description="${name}" key-field-name="id">
+                    <entity-order-by field-name="name"/>
+                </entity-options>
+            </drop-down>
+        </field>
+        <field name="beamAmount" title="${uiLabelMap.BeamAmount}">
+            <text size="20"/>
+        </field>
+
+        <field name="submitButton" use-when="inventoryOutput==null" title="${uiLabelMap.CommonCreate}">
+            <submit button-type="button"/>
+        </field>
+        <field name="submitButton" use-when="inventoryOutput!=null" title="${uiLabelMap.CommonUpdate}">
+            <submit button-type="button"/>
+        </field>
     </form>
 
 </forms>

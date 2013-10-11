@@ -82,9 +82,9 @@ under the License.
         <!--<permission-service service-name="exampleGenericPermission" main-action="CREATE"/>-->
         <auto-attributes include="pk" mode="OUT" optional="false"/>
         <auto-attributes include="nonpk" mode="IN" optional="true"/>
-        <override name="machine_no" optional="false"/>
-        <override name="product_id" optional="false"/>
-        <override name="batch_no_id" optional="false"/>
+        <override name="machineNo" optional="false"/>
+        <override name="productId" optional="false"/>
+        <override name="batchNoId" optional="false"/>
         <!--<override name="inputDate" default-value="${org.ofbiz.base.util.UtilDateTime.nowTimestamp()}"/>-->
     </service>
     <service name="updateInput" default-entity-name="InventoryInput" engine="entity-auto" invoke="update" auth="true">
@@ -100,8 +100,8 @@ under the License.
         <!--<permission-service service-name="exampleGenericPermission" main-action="CREATE"/>-->
         <auto-attributes include="pk" mode="OUT" optional="false"/>
         <auto-attributes include="nonpk" mode="IN" optional="true"/>
-        <override name="product_id" optional="false"/>
-        <override name="batch_no_id" optional="false"/>
+        <override name="productId" optional="false"/>
+        <override name="batchNoId" optional="false"/>
         <!--<override name="OutputDate" default-value="${org.ofbiz.base.util.UtilDateTime.nowTimestamp()}"/>-->
     </service>
     <service name="updateOutput" default-entity-name="InventoryOutput" engine="entity-auto" invoke="update" auth="true">
@@ -109,5 +109,28 @@ under the License.
         <!--<permission-service service-name="exampleGenericPermission" main-action="UPDATE"/>-->
         <auto-attributes include="pk" mode="IN" optional="false"/>
         <auto-attributes include="nonpk" mode="IN" optional="true"/>
+    </service>
+
+    <!-- Machine output & Related Services -->
+    <service name="createMachineOutput" default-entity-name="InventoryMachineOutput" engine="entity-auto" invoke="create" auth="true">
+        <description>Create a new machine output record</description>
+        <!--<permission-service service-name="exampleGenericPermission" main-action="CREATE"/>-->
+        <auto-attributes include="pk" mode="OUT" optional="false"/>
+        <auto-attributes include="nonpk" mode="IN" optional="true"/>
+        <override name="machineNo" optional="false"/>
+        <override name="productId" optional="false"/>
+        <override name="batchNoId" optional="false"/>
+        <override name="beamAmount" optional="false"/>
+        <!--<override name="OutputDate" default-value="${org.ofbiz.base.util.UtilDateTime.nowTimestamp()}"/>-->
+    </service>
+    <service name="updateMachineOutput" default-entity-name="InventoryMachineOutput" engine="entity-auto" invoke="update" auth="true">
+        <description>Update a machine Output record</description>
+        <!--<permission-service service-name="exampleGenericPermission" main-action="UPDATE"/>-->
+        <auto-attributes include="pk" mode="IN" optional="false"/>
+        <auto-attributes include="nonpk" mode="IN" optional="true"/>
+        <override name="machineNo" optional="false"/>
+        <override name="productId" optional="false"/>
+        <override name="batchNoId" optional="false"/>
+        <override name="beamAmount" optional="false"/>
     </service>
 </services>

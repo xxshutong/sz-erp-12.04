@@ -222,4 +222,47 @@
         <value xml:lang="zh">码单</value>
     </property>
 
+   <!-- 机台产量管理 -->
+    <property key="InventoryMachineOutputId">
+        <value xml:lang="en">ID</value>
+        <value xml:lang="zh">编号</value>
+    </property>
+
+    <property key="MachineOutputManager">
+        <value xml:lang="en">Machine Output</value>
+        <value xml:lang="zh">机台产量</value>
+    </property>
+
+    <property key="NewMachineOutput">
+        <value xml:lang="en">New Machine Output</value>
+        <value xml:lang="zh">添加机台产量记录</value>
+    </property>
+
+    <property key="EditMachineOutput">
+        <value xml:lang="en">Edit Machine Output</value>
+        <value xml:lang="zh">编辑机台产量记录</value>
+    </property>
+
+    <property key="PageTitleEditOutput">
+        <value xml:lang="en">Add/Edit Machine Output</value>
+        <value xml:lang="zh">添加/编辑 机台产量记录</value>
+    </property>
+
+    <property key="BeamAmount">
+        <value xml:lang="en">Beam Amount</value>
+        <value xml:lang="zh">经轴长度</value>
+    </property>
+
+    <property key="OutputAmount">
+        <value xml:lang="en">Output Amount</value>
+        <value xml:lang="zh">累计产量</value>
+    </property>
+
+    <property key="CompleteFlag">
+        <value xml:lang="en">Complete</value>
+        <value xml:lang="zh">是否完成</value>
+    </property>
+
+
+
 </resource>

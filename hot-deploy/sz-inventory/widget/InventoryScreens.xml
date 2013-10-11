@@ -281,7 +281,7 @@
                             <widgets>
                                 <decorator-screen name="FindScreenDecorator" location="component://common/widget/CommonScreens.xml">
                                     <decorator-section name="menu-bar">
-                                        <container style="button-bar"><link target="EditOutputLayer" link-type="ajax-window" height="280" width="400" text="${uiLabelMap.NewOutput}" style="buttontext create"/></container>
+                                        <container style="button-bar"><link target="EditOutputLayer" link-type="ajax-window" height="350" width="400" text="${uiLabelMap.NewOutput}" style="buttontext create"/></container>
                                     </decorator-section>
                                     <decorator-section name="search-options">
                                         <include-form name="FindOutput" location="component://sz-inventory/widget/InventoryForms.xml"/>
@@ -326,6 +326,72 @@
                 <decorator-screen name="CommonInventoryOutputDecorator" location="${parameters.mainDecoratorLocation}">
                     <decorator-section name="body">
                         <include-form name="EditOutput" location="component://sz-inventory/widget/InventoryForms.xml"/>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+
+    <!-- Machine Output -->
+    <screen name="ManageMachineOutput">
+        <section>
+            <actions>
+                <set field="headerItem" value="MachineOutputItem"/>
+                <set field="titleProperty" value="MachineOutputManager"/>
+                <set field="machineOutputCtx" from-field="parameters"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                        <section>
+                            <widgets>
+                                <decorator-screen name="FindScreenDecorator" location="component://common/widget/CommonScreens.xml">
+                                    <decorator-section name="menu-bar">
+                                        <container style="button-bar"><link target="EditMachineOutputLayer" link-type="ajax-window" height="230" width="400" text="${uiLabelMap.NewMachineOutput}" style="buttontext create"/></container>
+                                    </decorator-section>
+                                    <decorator-section name="search-options">
+                                        <include-form name="FindMachineOutput" location="component://sz-inventory/widget/InventoryForms.xml"/>
+                                    </decorator-section>
+                                    <decorator-section name="search-results">
+                                        <include-form name="ListMachineOutput" location="component://sz-inventory/widget/InventoryForms.xml"/>
+                                    </decorator-section>
+                                </decorator-screen>
+                            </widgets>
+                        </section>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+
+    <screen name="EditMachineOutputLayer">
+        <section>
+            <actions>
+                <property-map resource="InventoryUiLabels" map-name="uiLabelMap" global="true"/>
+                <property-map resource="CommonUiLabels" map-name="uiLabelMap" global="true"/>
+                <set field="titleProperty" value="PageTitleEditMachineOutput"/>
+                <set field="tabButtonItem" value="EditMachineOutput"/>
+                <set field="id" from-field="parameters.id"/>
+                <entity-one entity-name="InventoryMachineOutput" value-field="inventoryMachineOutput"/>
+            </actions>
+            <widgets>
+                <include-form name="EditMachineOutput" location="component://sz-inventory/widget/InventoryForms.xml"/>
+            </widgets>
+        </section>
+    </screen>
+
+    <screen name="EditMachineOutput">
+        <section>
+            <actions>
+                <set field="titleProperty" value="EditMachineOutput"/>
+                <set field="tabButtonItem" value="EditMachineOutput"/>
+                <set field="id" from-field="parameters.id"/>
+                <entity-one entity-name="InventoryMachineOutput" value-field="inventoryMachineOutput"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="CommonInventoryMachineOutputDecorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                        <include-form name="EditMachineOutput" location="component://sz-inventory/widget/InventoryForms.xml"/>
                     </decorator-section>
                 </decorator-screen>
             </widgets>

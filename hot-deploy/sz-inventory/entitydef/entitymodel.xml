@@ -53,10 +53,12 @@ under the License.
         <field name="completeDate" type="date-time">
             <description>完成时间</description>
         </field>
-        <field name="WovenShrinkage" type="floating-point">
+        <field name="wovenShrinkage" type="floating-point">
             <description>织缩率</description>
         </field>
         <field name="id" type="id-ne"></field>
+        <field name="productId" type="id"></field>
+        <field name="batchNoId" type="id"></field>
         <prim-key field="id"/>
         <relation type="one" rel-entity-name="InventoryProduct">
             <description>品名</description>

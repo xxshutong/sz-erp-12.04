@@ -52,7 +52,7 @@ under the License.
     <!-- Request Mappings -->
     <request-map uri="main">
         <security https="false" auth="false"/>
-        <response name="success" type="view" value="main"/>
+        <response name="success" type="view" value="ManageMachineOutput"/>
     </request-map>
 
     <!-- Batch No -->
@@ -213,6 +213,38 @@ under the License.
             <redirect-parameter name="id"/>
         </response>
         <response name="error" type="view" value="EditOutput"/>
+    </request-map>
+
+    <!-- Machine Output -->
+    <request-map uri="ManageMachineOutput">
+        <security https="false" auth="false"/>
+        <response name="success" type="view" value="ManageMachineOutput"/>
+    </request-map>
+
+    <request-map uri="EditMachineOutput">
+        <security https="false" auth="false"/>
+        <response name="success" type="view" value="EditMachineOutput"/>
+    </request-map>
+
+    <request-map uri="EditMachineOutputLayer">
+        <security https="false" auth="false"/>
+        <response name="success" type="view" value="EditMachineOutputLayer"/>
+    </request-map>
+
+    <request-map uri="createMachineOutput">
+        <security https="false" auth="false"/>
+        <event type="service" invoke="createMachineOutput"/>
+        <response name="success" type="request-redirect" value="ManageMachineOutput"/>
+        <response name="error" type="view" value="FindMachineOutput"/>
+    </request-map>
+
+    <request-map uri="updateMachineOutput">
+        <security https="false" auth="false"/>
+        <event type="service" invoke="updateMachineOutput"/>
+        <response name="success" type="request-redirect" value="EditMachineOutput">
+            <redirect-parameter name="id"/>
+        </response>
+        <response name="error" type="view" value="EditMachineOutput"/>
     </request-map>
 
     <!--&lt;!&ndash; Example Requests &ndash;&gt;-->
@@ -421,6 +453,10 @@ under the License.
     <view-map name="ManageOutput" type="screen" page="component://sz-inventory/widget/InventoryScreens.xml#ManageOutput"/>
     <view-map name="EditOutput" type="screen" page="component://sz-inventory/widget/InventoryScreens.xml#EditOutput"/>
     <view-map name="EditOutputLayer" type="screen" page="component://sz-inventory/widget/InventoryScreens.xml#EditOutputLayer"/>
+
+    <view-map name="ManageMachineOutput" type="screen" page="component://sz-inventory/widget/InventoryScreens.xml#ManageMachineOutput"/>
+    <view-map name="EditMachineOutput" type="screen" page="component://sz-inventory/widget/InventoryScreens.xml#EditMachineOutput"/>
+    <view-map name="EditMachineOutputLayer" type="screen" page="component://sz-inventory/widget/InventoryScreens.xml#EditMachineOutputLayer"/>
 
     <!--<view-map name="FindExample" type="screen" page="component://example/widget/example/ExampleScreens.xml#FindExample"/>-->
     <!--<view-map name="EditExample" type="screen" page="component://example/widget/example/ExampleScreens.xml#EditExample"/>-->
