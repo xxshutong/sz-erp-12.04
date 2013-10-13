@@ -560,8 +560,10 @@ under the License.
         <field name="outputAmount" title="${uiLabelMap.OutputAmount}">
             <display default-value="0"/>
         </field>
-        <field name="isCompleted" title="${uiLabelMap.CompleteFlag}">
-            <display/>
+        <field name="operate" use-when="!&quot;Y&quot;.equals(isCompleted)" title="${uiLabelMap.CommonOperate}" widget-style="buttontext" >
+            <hyperlink target="completeMachineOutput" description="${uiLabelMap.CompleteOperate}">
+                <parameter param-name="id"/>
+            </hyperlink>
         </field>
     </form>
 

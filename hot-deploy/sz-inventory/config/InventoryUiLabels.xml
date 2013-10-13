@@ -47,6 +47,11 @@
         <value xml:lang="zh">无</value>
     </property>
 
+    <property key="CommonOperate">
+        <value xml:lang="en">Operate</value>
+        <value xml:lang="zh">操作</value>
+    </property>
+
     <!-- 批号 -->
     <property key="BatchNoManager">
         <value xml:lang="en">Batch Number Management</value>
@@ -261,6 +266,11 @@
     <property key="CompleteFlag">
         <value xml:lang="en">Complete</value>
         <value xml:lang="zh">是否完成</value>
+    </property>
+
+    <property key="CompleteOperate">
+        <value xml:lang="en">Complete</value>
+        <value xml:lang="zh">完成</value>
     </property>
 
 
