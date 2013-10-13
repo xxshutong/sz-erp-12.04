@@ -399,7 +399,7 @@ public final class JsLanguageFilesMapping {
             localeFiles.put("ca", "/images/jquery/plugins/validate/localization/messages_ca.js");
             localeFiles.put("ca_ES", "/images/jquery/plugins/validate/localization/messages_ca.js");
             localeFiles.put("zh", "/images/jquery/plugins/validate/localization/messages_en.js");
-            localeFiles.put("zh_CN", "/images/jquery/plugins/validate/localization/messages_en.js");
+            localeFiles.put("zh_CN", "/images/jquery/plugins/validate/localization/messages_cn.js");
             localeFiles.put("zh_HK", "/images/jquery/plugins/validate/localization/messages_en.js");
             localeFiles.put("zh_SG", "/images/jquery/plugins/validate/localization/messages_en.js");
             localeFiles.put("zh_TW", "/images/jquery/plugins/validate/localization/messages_en.js");
