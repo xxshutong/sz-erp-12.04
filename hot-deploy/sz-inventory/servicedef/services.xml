@@ -133,4 +133,8 @@ under the License.
         <override name="batchNoId" optional="false"/>
         <override name="beamAmount" optional="false"/>
     </service>
+    <service name="completeMachineOutput" engine="java" invoke="completeMachineOutput" location="">
+        <description>Complete machine output</description>
+
+    </service>
 </services>

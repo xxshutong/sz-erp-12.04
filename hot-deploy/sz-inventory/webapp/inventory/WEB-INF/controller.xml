@@ -247,6 +247,12 @@ under the License.
         <response name="error" type="view" value="EditMachineOutput"/>
     </request-map>
 
+    <request-map uri="completeMachineOutput">
+        <security https="false" auth="false"/>
+        <event type="service" invoke="completeMachineOutput"/>
+        <response name="success" type="view" value="ManageMachineOutput"/>
+    </request-map>
+
     <!--&lt;!&ndash; Example Requests &ndash;&gt;-->
     <!--<request-map uri="FindExample"><security https="true" auth="true"/><response name="success" type="view" value="FindExample"/></request-map>-->
     <!--<request-map uri="EditExample"><security https="true" auth="true"/><response name="success" type="view" value="EditExample"/></request-map>-->

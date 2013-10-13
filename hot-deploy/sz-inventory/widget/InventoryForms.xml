@@ -561,7 +561,7 @@ under the License.
             <display default-value="0"/>
         </field>
         <field name="operate" use-when="!&quot;Y&quot;.equals(isCompleted)" title="${uiLabelMap.CommonOperate}" widget-style="buttontext" >
-            <hyperlink target="completeMachineOutput" description="${uiLabelMap.CompleteOperate}">
+            <hyperlink target="completeMachineOutput" description="${uiLabelMap.CompleteOperate}" confirmation-message="${uiLabelMap.ConfirmComplete}">
                 <parameter param-name="id"/>
             </hyperlink>
         </field>

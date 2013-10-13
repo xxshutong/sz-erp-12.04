@@ -273,6 +273,9 @@
         <value xml:lang="zh">完成</value>
     </property>
 
-
+    <property key="ConfirmComplete">
+        <value xml:lang="en">Are you sure to complete this Machine Output Plan?</value>
+        <value xml:lang="zh">你是否确认当前机台产量已完成？</value>
+    </property>
 
 </resource>
