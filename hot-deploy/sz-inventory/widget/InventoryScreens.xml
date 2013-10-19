@@ -336,7 +336,7 @@
     <screen name="ManageMachineOutput">
         <section>
             <actions>
-                <set field="headerItem" value="MachineOutputItem"/>
+                <set field="headerItem" value="main"/>
                 <set field="titleProperty" value="MachineOutputManager"/>
                 <set field="tabButtonItem" value="ManageMachineOutput"/>
                 <set field="machineOutputCtx" from-field="parameters"/>
@@ -403,15 +403,12 @@
     <screen name="ManageInventory">
         <section>
             <actions>
-                <set field="headerItem" value="MachineOutputItem"/>
+                <set field="headerItem" value="main"/>
                 <set field="titleProperty" value="MachineOutputManager"/>
-                <set field="tabButtonItem" value="ManageMachineOutput"/>
-                <set field="machineOutputCtx" from-field="parameters"/>
 
-                <set field="headerItem" value="MachineOutputItem"/>
                 <!--<set field="titleProperty" value="MachineOutputManager"/>-->
                 <set field="tabButtonItem" value="ManageInventory"/>
-                <!--<set field="machineOutputCtx" from-field="parameters"/>-->
+                <set field="inventoryCtx" from-field="parameters"/>
             </actions>
             <widgets>
                 <decorator-screen name="CommonInventoryMachineOutputMainDecorator" location="${parameters.mainDecoratorLocation}">
@@ -423,7 +420,7 @@
                                         <include-form name="FindInventory" location="component://sz-inventory/widget/InventoryForms.xml"/>
                                     </decorator-section>
                                     <decorator-section name="search-results">
-                                        <include-form name="ListBatchNo" location="component://sz-inventory/widget/InventoryForms.xml"/>
+                                        <include-form name="ListInventory" location="component://sz-inventory/widget/InventoryForms.xml"/>
                                     </decorator-section>
                                 </decorator-screen>
                             </widgets>
