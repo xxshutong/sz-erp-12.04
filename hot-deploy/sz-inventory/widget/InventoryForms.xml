@@ -38,7 +38,7 @@ under the License.
         </field>
     </form>
 
-    <form name="ListBatchNo" type="list" list-name="listIt" paginate-target="FindBatchNo"
+    <form name="ListBatchNo" type="list" list-name="listIt" paginate-target="ManageBatchNo"
           default-entity-name="InventoryBatchNo"
           separate-columns="true"
           odd-row-style="alternate-row" header-row-style="header-row-2" default-table-style="basic-table hover-bar">
@@ -105,7 +105,7 @@ under the License.
         </field>
     </form>
 
-    <form name="ListProduct" type="list" list-name="listIt" paginate-target="FindProduct"
+    <form name="ListProduct" type="list" list-name="listIt" paginate-target="ManageProduct"
           default-entity-name="InventoryProduct"
           separate-columns="true"
           odd-row-style="alternate-row" header-row-style="header-row-2" default-table-style="basic-table hover-bar">
@@ -172,7 +172,7 @@ under the License.
         </field>
     </form>
 
-    <form name="ListCustomer" type="list" list-name="listIt" paginate-target="FindCustomer"
+    <form name="ListCustomer" type="list" list-name="listIt" paginate-target="ManageCustomer"
           default-entity-name="SzCustomer"
           separate-columns="true"
           odd-row-style="alternate-row" header-row-style="header-row-2" default-table-style="basic-table hover-bar">
@@ -253,7 +253,7 @@ under the License.
         </field>
     </form>
 
-    <form name="ListInput" type="list" list-name="listIt" paginate-target="FindInput"
+    <form name="ListInput" type="list" list-name="listIt" paginate-target="ManageInput"
           default-entity-name="InventoryInput"
           separate-columns="true"
           odd-row-style="alternate-row" header-row-style="header-row-2" default-table-style="basic-table hover-bar">
@@ -388,7 +388,7 @@ under the License.
         </field>
     </form>
 
-    <form name="ListOutput" type="list" list-name="listIt" paginate-target="FindOutput"
+    <form name="ListOutput" type="list" list-name="listIt" paginate-target="ManageOutput"
           default-entity-name="InventoryOutput"
           separate-columns="true"
           odd-row-style="alternate-row" header-row-style="header-row-2" default-table-style="basic-table hover-bar">
@@ -531,7 +531,7 @@ under the License.
         </field>
     </form>
 
-    <form name="ListMachineOutput" type="list" list-name="listIt" paginate-target="FindMachineOutput"
+    <form name="ListMachineOutput" type="list" list-name="listIt" paginate-target="ManageMachineOutput"
           default-entity-name="InventoryMachineOutput"
           separate-columns="true"
           odd-row-style="alternate-row" header-row-style="header-row-2" default-table-style="basic-table hover-bar">
@@ -639,6 +639,32 @@ under the License.
     </form>
 
     <!-- List Inventory Form -->
+    <form name="FindInventory" type="single" target="ManageInventory">
+        <field name="noConditionFind">
+            <hidden value="Y"/>
+            <!-- if this isn't there then with all fields empty no query will be done -->
+        </field>
+        <field name="productId" title="${uiLabelMap.InventoryProductName}" id-name="productId" widget-style="required">
+            <drop-down allow-empty="false">
+                <!-- this is a neat feature, but not good for the type because the user would have to know the possible types in order to enter at least the first letter, so leaving it out by default; just uncomment to enable: <auto-complete/> -->
+                <entity-options entity-name="InventoryProduct" description="${name}" key-field-name="id">
+                    <entity-order-by field-name="name"/>
+                </entity-options>
+            </drop-down>
+        </field>
+        <field name="batchNoId" title="${uiLabelMap.InventoryBatchNoName}" id-name="batchNoId" widget-style="required">
+            <drop-down allow-empty="false">
+                <!-- this is a neat feature, but not good for the type because the user would have to know the possible types in order to enter at least the first letter, so leaving it out by default; just uncomment to enable: <auto-complete/> -->
+                <entity-options entity-name="InventoryBatchNo" description="${name}" key-field-name="id">
+                    <entity-order-by field-name="name"/>
+                </entity-options>
+            </drop-down>
+        </field>
+        <field name="searchButton" title="${uiLabelMap.CommonFind}" widget-style="smallSubmit">
+            <submit button-type="button" image-location="/images/icons/magnifier.png"/>
+        </field>
+    </form>
+
     <form name="ListInventory" type="list" list-name="listIt"
           default-entity-name="InventoryMachineOutput"
           separate-columns="true"
