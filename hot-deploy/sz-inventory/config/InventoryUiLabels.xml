@@ -52,6 +52,26 @@
         <value xml:lang="zh">操作</value>
     </property>
 
+    <property key="CommonStatus">
+        <value xml:lang="en">Status</value>
+        <value xml:lang="zh">状态</value>
+    </property>
+
+    <property key="CommonAll">
+        <value xml:lang="en">All</value>
+        <value xml:lang="zh">全部</value>
+    </property>
+
+    <property key="CommonCompleted">
+        <value xml:lang="en">Completed</value>
+        <value xml:lang="zh">已完成</value>
+    </property>
+
+    <property key="CommonNotCompleted">
+        <value xml:lang="en">Not Completed</value>
+        <value xml:lang="zh">未完成</value>
+    </property>
+
     <!-- 批号 -->
     <property key="BatchNoManager">
         <value xml:lang="en">Batch Number Management</value>
@@ -264,13 +284,13 @@
     </property>
 
     <property key="CompleteFlag">
-        <value xml:lang="en">Complete</value>
-        <value xml:lang="zh">是否完成</value>
+        <value xml:lang="en">Output Rating</value>
+        <value xml:lang="zh">织缩率</value>
     </property>
 
     <property key="CompleteOperate">
-        <value xml:lang="en">Complete</value>
-        <value xml:lang="zh">完成</value>
+        <value xml:lang="en">Complete And Calculate</value>
+        <value xml:lang="zh">完成并计算织缩率</value>
     </property>
 
     <property key="ConfirmComplete">

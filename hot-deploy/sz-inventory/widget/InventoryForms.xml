@@ -502,8 +502,12 @@ under the License.
             <hidden value="Y"/>
             <!-- if this isn't there then with all fields empty no query will be done -->
         </field>
-        <field name="isCompleted">
-            <hidden value="N"/>
+        <field name="isCompleted" title="${uiLabelMap.CommonStatus}">
+            <drop-down allow-empty="false">
+                <option key="" description="${uiLabelMap.CommonAll}"/>
+                <option key="Y" description="${uiLabelMap.CommonCompleted}"/>
+                <option key="N" description="${uiLabelMap.CommonNotCompleted}"/>
+            </drop-down>
         </field>
         <field name="machineNo" title="${uiLabelMap.InventoryInputMachineNo}">
             <text size="20"/>
@@ -558,15 +562,18 @@ under the License.
             <display/>
         </field>
         <field name="outputAmount" title="${uiLabelMap.OutputAmount}">
-            <display default-value="0"/>
+            <display default-value="未知"/>
         </field>
-        <field name="operate" use-when="!&quot;Y&quot;.equals(isCompleted)" title="${uiLabelMap.CommonOperate}" widget-style="buttontext" >
+        <field name="wovenShrinkage" use-when="!&quot;Y&quot;.equals(isCompleted)" title="${uiLabelMap.CompleteFlag}" widget-style="buttontext" >
             <hyperlink target="completeMachineOutput" description="${uiLabelMap.CompleteOperate}" confirmation-message="${uiLabelMap.ConfirmComplete}">
                 <parameter param-name="id"/>
                 <parameter param-name="machineNo"/>
                 <parameter param-name="productId"/>
                 <parameter param-name="batchNoId"/>
             </hyperlink>
+        </field>
+        <field name="wovenShrinkage" use-when="&quot;Y&quot;.equals(isCompleted)" title="${uiLabelMap.CompleteFlag}">
+            <display/>
         </field>
     </form>
 
