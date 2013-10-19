@@ -133,8 +133,13 @@ under the License.
         <override name="batchNoId" optional="false"/>
         <override name="beamAmount" optional="false"/>
     </service>
-    <service name="completeMachineOutput" engine="java" invoke="completeMachineOutput" location="">
+    <service name="completeMachineOutput" engine="java" invoke="completeMachineOutput"  transaction-timeout="7200"
+             location="com.wjzpw.service.MachineOutputService">
         <description>Complete machine output</description>
-
+        <attribute name="id" type="String" mode="IN" optional="false"/>
+        <attribute name="machineNo" type="String" mode="IN" optional="false"/>
+        <attribute name="productId" type="String" mode="IN" optional="false"/>
+        <attribute name="batchNoId" type="String" mode="IN" optional="false"/>
     </service>
+
 </services>
