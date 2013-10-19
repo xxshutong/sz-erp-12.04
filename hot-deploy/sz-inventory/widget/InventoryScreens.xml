@@ -398,4 +398,32 @@
             </widgets>
         </section>
     </screen>
+
+    <!-- Machine Inventory -->
+    <screen name="ManageInventory">
+        <section>
+            <actions>
+                <set field="headerItem" value="MachineOutputItem"/>
+                <set field="titleProperty" value="MachineOutputManager"/>
+                <set field="tabButtonItem" value="ManageMachineOutput"/>
+                <set field="machineOutputCtx" from-field="parameters"/>
+
+                <set field="headerItem" value="MachineOutputItem"/>
+                <!--<set field="titleProperty" value="MachineOutputManager"/>-->
+                <set field="tabButtonItem" value="ManageInventory"/>
+                <!--<set field="machineOutputCtx" from-field="parameters"/>-->
+            </actions>
+            <widgets>
+                <decorator-screen name="CommonInventoryMachineOutputMainDecorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                        <section>
+                            <widgets>
+                                <include-form name="ListInventory" location="component://sz-inventory/widget/InventoryForms.xml"/>
+                            </widgets>
+                        </section>
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
 </screens>

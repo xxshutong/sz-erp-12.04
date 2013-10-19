@@ -221,6 +221,11 @@ under the License.
         <response name="success" type="view" value="ManageMachineOutput"/>
     </request-map>
 
+    <request-map uri="ManageInventory">
+        <security https="false" auth="false"/>
+        <response name="success" type="view" value="ManageInventory"></response>
+    </request-map>
+
     <request-map uri="EditMachineOutput">
         <security https="false" auth="false"/>
         <response name="success" type="view" value="EditMachineOutput"/>
@@ -463,6 +468,9 @@ under the License.
     <view-map name="ManageMachineOutput" type="screen" page="component://sz-inventory/widget/InventoryScreens.xml#ManageMachineOutput"/>
     <view-map name="EditMachineOutput" type="screen" page="component://sz-inventory/widget/InventoryScreens.xml#EditMachineOutput"/>
     <view-map name="EditMachineOutputLayer" type="screen" page="component://sz-inventory/widget/InventoryScreens.xml#EditMachineOutputLayer"/>
+
+    <!-- Inventory -->
+    <view-map name="ManageInventory" type="screen" page="component://sz-inventory/widget/InventoryScreens.xml#ManageInventory"/>
 
     <!--<view-map name="FindExample" type="screen" page="component://example/widget/example/ExampleScreens.xml#FindExample"/>-->
     <!--<view-map name="EditExample" type="screen" page="component://example/widget/example/ExampleScreens.xml#EditExample"/>-->

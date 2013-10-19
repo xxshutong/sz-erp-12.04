@@ -638,4 +638,51 @@ under the License.
         </field>
     </form>
 
+    <!-- List Inventory Form -->
+    <form name="ListInventory" type="list" list-name="listIt"
+          default-entity-name="InventoryMachineOutput"
+          separate-columns="true"
+          odd-row-style="alternate-row" header-row-style="header-row-2" default-table-style="basic-table hover-bar">
+        <actions>
+            <service service-name="performFind" result-map="result" result-map-list="listIt">
+                <field-map field-name="inputFields" from-field="machineOutputCtx"/>
+                <field-map field-name="entityName" value="InventoryMachineOutput"/>
+                <field-map field-name="orderBy" value="-id"/>
+                <field-map field-name="viewIndex" from-field="viewIndex"/>
+                <field-map field-name="viewSize" from-field="viewSize"/>
+            </service>
+        </actions>
+        <field name="id" title="${uiLabelMap.CommonId}">
+            <hyperlink also-hidden="false" description="${id}" target="EditMachineOutput">
+                <parameter param-name="id"/>
+            </hyperlink>
+        </field>
+        <field name="machineNo" title="${uiLabelMap.InventoryInputMachineNo}">
+            <display/>
+        </field>
+        <field name="productId" title="${uiLabelMap.InventoryProductName}">
+            <display-entity key-field-name="id" entity-name="InventoryProduct" description="${name}"/>
+        </field>
+        <field name="batchNoId" title="${uiLabelMap.InventoryBatchNoName}">
+            <display-entity key-field-name="id" entity-name="InventoryBatchNo" description="${name}"/>
+        </field>
+        <field name="beamAmount" title="${uiLabelMap.BeamAmount}">
+            <display/>
+        </field>
+        <field name="outputAmount" title="${uiLabelMap.OutputAmount}">
+            <display default-value="未知"/>
+        </field>
+        <field name="wovenShrinkage" use-when="!&quot;Y&quot;.equals(isCompleted)" title="${uiLabelMap.CompleteFlag}" widget-style="buttontext" >
+            <hyperlink target="completeMachineOutput" description="${uiLabelMap.CompleteOperate}" confirmation-message="${uiLabelMap.ConfirmComplete}">
+                <parameter param-name="id"/>
+                <parameter param-name="machineNo"/>
+                <parameter param-name="productId"/>
+                <parameter param-name="batchNoId"/>
+            </hyperlink>
+        </field>
+        <field name="wovenShrinkage" use-when="&quot;Y&quot;.equals(isCompleted)" title="${uiLabelMap.CompleteFlag}">
+            <display/>
+        </field>
+    </form>
+
 </forms>
