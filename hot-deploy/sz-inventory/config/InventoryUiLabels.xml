@@ -258,6 +258,11 @@
         <value xml:lang="zh">机台产量</value>
     </property>
 
+    <property key="ManageMachineOutput">
+        <value xml:lang="en">Manage Machine Output</value>
+        <value xml:lang="zh">管理机台产量</value>
+    </property>
+
     <property key="NewMachineOutput">
         <value xml:lang="en">New Machine Output</value>
         <value xml:lang="zh">添加机台产量记录</value>
@@ -296,6 +301,12 @@
     <property key="ConfirmComplete">
         <value xml:lang="en">Are you sure to complete this Machine Output Plan?</value>
         <value xml:lang="zh">你是否确认当前机台产量已完成？</value>
+    </property>
+
+    <!-- Inventory -->
+    <property key="Inventory">
+        <value xml:lang="en">Manage Inventory</value>
+        <value xml:lang="zh">管理库存</value>
     </property>
 
 </resource>

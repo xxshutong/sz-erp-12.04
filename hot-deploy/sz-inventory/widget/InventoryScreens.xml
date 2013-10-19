@@ -338,10 +338,11 @@
             <actions>
                 <set field="headerItem" value="MachineOutputItem"/>
                 <set field="titleProperty" value="MachineOutputManager"/>
+                <set field="tabButtonItem" value="ManageMachineOutput"/>
                 <set field="machineOutputCtx" from-field="parameters"/>
             </actions>
             <widgets>
-                <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
+                <decorator-screen name="CommonInventoryMachineOutputMainDecorator" location="${parameters.mainDecoratorLocation}">
                     <decorator-section name="body">
                         <section>
                             <widgets>
