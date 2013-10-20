@@ -645,7 +645,7 @@ under the License.
             <!-- if this isn't there then with all fields empty no query will be done -->
         </field>
         <field name="productId" title="${uiLabelMap.InventoryProductName}" id-name="productId" widget-style="required">
-            <drop-down allow-empty="false">
+            <drop-down allow-empty="true">
                 <!-- this is a neat feature, but not good for the type because the user would have to know the possible types in order to enter at least the first letter, so leaving it out by default; just uncomment to enable: <auto-complete/> -->
                 <entity-options entity-name="InventoryProduct" description="${name}" key-field-name="id">
                     <entity-order-by field-name="name"/>
@@ -653,7 +653,7 @@ under the License.
             </drop-down>
         </field>
         <field name="batchNoId" title="${uiLabelMap.InventoryBatchNoName}" id-name="batchNoId" widget-style="required">
-            <drop-down allow-empty="false">
+            <drop-down allow-empty="true">
                 <!-- this is a neat feature, but not good for the type because the user would have to know the possible types in order to enter at least the first letter, so leaving it out by default; just uncomment to enable: <auto-complete/> -->
                 <entity-options entity-name="InventoryBatchNo" description="${name}" key-field-name="id">
                     <entity-order-by field-name="name"/>
@@ -665,15 +665,12 @@ under the License.
         </field>
     </form>
 
-    <form name="ListInventory" type="list" list-name="listIt" paginate-target="ManageInventory"
-          default-entity-name="InventoryMachineOutput"
+    <form name="ListInventory" type="list" list-name="list" paginate-target="ManageInventory"
           separate-columns="true"
           odd-row-style="alternate-row" header-row-style="header-row-2" default-table-style="basic-table hover-bar">
         <actions>
-            <service service-name="performFind" result-map="result" result-map-list="listIt">
+            <service service-name="performFindInventory" result-map="result" result-map-list="list">
                 <field-map field-name="inputFields" from-field="inventoryCtx"/>
-                <field-map field-name="entityName" value="InventoryMachineOutput"/>
-                <field-map field-name="orderBy" value="-id"/>
                 <field-map field-name="viewIndex" from-field="viewIndex"/>
                 <field-map field-name="viewSize" from-field="viewSize"/>
             </service>

@@ -64,7 +64,8 @@ public class MachineOutputService {
                 UtilMisc.toList(
                         EntityCondition.makeCondition("machineNo", EntityOperator.EQUALS, machineNo),
                         EntityCondition.makeCondition("productId", EntityOperator.EQUALS, productId),
-                        EntityCondition.makeCondition("batchNoId", EntityOperator.EQUALS, batchNoId)
+                        EntityCondition.makeCondition("batchNoId", EntityOperator.EQUALS, batchNoId),
+                        EntityCondition.makeCondition("machineOutputId", EntityOperator.EQUALS, machineOutputId)
                 ),
                 EntityOperator.AND);
 
