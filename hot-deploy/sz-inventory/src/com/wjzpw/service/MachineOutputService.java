@@ -59,13 +59,14 @@ public class MachineOutputService {
         inputView.addAlias("II", "machineNo", null, null, null, true, null);
         inputView.addAlias("II", "productId", null, null, null, true, null);
         inputView.addAlias("II", "batchNoId", null, null, null, true, null);
+        inputView.addAlias("II", "machineOutputId", null, null, null, true, null);
         // Conditions
         EntityCondition condition = EntityCondition.makeCondition(
                 UtilMisc.toList(
                         EntityCondition.makeCondition("machineNo", EntityOperator.EQUALS, machineNo),
                         EntityCondition.makeCondition("productId", EntityOperator.EQUALS, productId),
                         EntityCondition.makeCondition("batchNoId", EntityOperator.EQUALS, batchNoId),
-                        EntityCondition.makeCondition("machineOutputId", EntityOperator.EQUALS, machineOutputId)
+                        EntityCondition.makeCondition("machineOutputId", EntityOperator.EQUALS, null)
                 ),
                 EntityOperator.AND);
 
