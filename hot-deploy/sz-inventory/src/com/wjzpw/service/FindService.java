@@ -126,13 +126,26 @@ public class FindService {
                 if (value.get("productId") != null && value.get("productId").equals(outputValue.get("productId"))
                         && value.get("batchNoId") != null
                         && value.get("batchNoId").equals(outputValue.get("batchNoId"))) {
-                    value.set("superiorNumber", value.getDouble("superiorNumber") - outputValue.getDouble("superiorNumber"));
-                    value.set("gradeANumber", value.getDouble("gradeANumber") - outputValue.getDouble("gradeANumber"));
-                    value.set("gradeBNumber", value.getDouble("gradeBNumber") - outputValue.getDouble("gradeBNumber"));
+                    value.set("superiorNumber", inputMinusOutput(value.getDouble("superiorNumber"), outputValue.getDouble("superiorNumber")));
+                    value.set("gradeANumber", inputMinusOutput(value.getDouble("gradeANumber"), outputValue.getDouble("gradeANumber")));
+                    value.set("gradeBNumber", inputMinusOutput(value.getDouble("gradeBNumber"), outputValue.getDouble("gradeBNumber")));
                 }
             }
         }
         return valueList;
+    }
+
+    private static Double inputMinusOutput(Double input, Double output) {
+        if (input == null && output == null) {
+            return null;
+        }
+        if (input == null && output != null) {
+            return 0 - output;
+        }
+        if (input != null && output == null) {
+            return input;
+        }
+        return  input - output;
     }
 
 }
