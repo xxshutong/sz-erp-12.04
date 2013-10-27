@@ -20,6 +20,7 @@ package com.wjzpw.service;
 
 import javolution.util.FastMap;
 import org.ofbiz.base.util.UtilMisc;
+import org.ofbiz.common.FindServices;
 import org.ofbiz.entity.Delegator;
 import org.ofbiz.entity.GenericEntityException;
 import org.ofbiz.entity.GenericValue;
@@ -32,7 +33,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.sql.Timestamp;
-import java.util.Date;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -51,6 +52,28 @@ public class MachineOutputService {
         logger.info("========================Batch No====>{}", batchNoId);
         Delegator delegator = dctx.getDelegator();
 
+        Double total = getTotalOutputAmount(delegator, machineNo, productId, batchNoId);
+        // Sum
+        try {
+            // Update Machine output record
+            updateMachineOutput(dctx, machineOutputId, total);
+            // Update all input records which have the same batch No and product type
+            updateInputByBatchNoProduct(dctx, machineOutputId, machineNo, batchNoId, productId);
+        } catch (GenericEntityException e) {
+            logger.error(e.getMessage(), e);
+        }
+
+        Map<String, Object> finalResult = FastMap.newInstance();
+
+        return finalResult;
+    }
+
+    /**
+     * 获取累积机台产量
+     *
+     * @return
+     */
+    private static Double getTotalOutputAmount(Delegator delegator, String machineNo, String productId, String batchNoId) {
         DynamicViewEntity inputView = new DynamicViewEntity();
         inputView.addMemberEntity("II", "InventoryInput");
         inputView.addAlias("II", "superiorNumber", "superiorNumber", null, null, null, "sum");
@@ -71,26 +94,28 @@ public class MachineOutputService {
                 EntityOperator.AND);
 
         // Sum
+        Double total = 0d;
         try {
             EntityListIterator result = delegator.findListIteratorByCondition(inputView, condition, null, null, null, null);
             logger.info(result.toString());
             GenericValue genericValue = result.next();
             if (genericValue != null) {
-                Double total = genericValue.getDouble("superiorNumber") + genericValue.getDouble("gradeANumber") + genericValue.getDouble("gradeANumber");
+                if (genericValue.getDouble("superiorNumber") != null) {
+                    total += genericValue.getDouble("superiorNumber");
+                }
+                if (genericValue.getDouble("gradeANumber") != null) {
+                    total += genericValue.getDouble("gradeANumber");
+                }
+                if (genericValue.getDouble("gradeBNumber") != null) {
+                    total += genericValue.getDouble("gradeBNumber");
+                }
                 logger.info("[ERP]==Total output==> {}", total);
-                // Update Machine output record
-                updateMachineOutput(dctx, machineOutputId, total);
-                // Update all input records which have the same batch No and product type
-                updateInputByBatchNoProduct(dctx, machineOutputId, machineNo, batchNoId, productId);
             }
             result.close();
         } catch (GenericEntityException e) {
             logger.error(e.getMessage(), e);
         }
-
-        Map<String, Object> finalResult = FastMap.newInstance();
-
-        return finalResult;
+        return total;
     }
 
     /**
@@ -116,8 +141,11 @@ public class MachineOutputService {
      * Update all related Input Record to completed status
      *
      * @param dctx
-     * @param batchNo
+     * @param machineOutputId
+     * @param machineNo
+     * @param batchNoId
      * @param productId
+     * @throws GenericEntityException
      */
     private static void updateInputByBatchNoProduct(DispatchContext dctx, String machineOutputId, String machineNo, String batchNoId, String productId) throws GenericEntityException {
         Delegator delegator = dctx.getDelegator();
@@ -133,5 +161,34 @@ public class MachineOutputService {
                 value.store();
             }
         }
+    }
+
+    /**
+     * performFindMachineOutput
+     * <p/>
+     * This is a generic method that expects entity data affixed with special suffixes
+     * to indicate their purpose in formulating an SQL query statement.
+     */
+    public static Map<String, Object> performFindMachineOutput(DispatchContext dctx, Map<String, ?> context) {
+        Delegator delegator = dctx.getDelegator();
+        Map<String, Object> result = FindServices.performFind(dctx, context);
+        EntityListIterator iterator = (EntityListIterator) result.get("listIt");
+        if (iterator != null) {
+            // 计算累计产量
+            List<GenericValue> valueList = new ArrayList<GenericValue>();
+
+            GenericValue value = iterator.next();
+            while (value != null) {
+                if (value.getDouble("outputAmount") == null) {
+                    // 计算
+                    Double total = getTotalOutputAmount(delegator, (String) value.get("machineNo"), (String) value.get("productId"), (String) value.get("batchNoId"));
+                    value.set("outputAmount", total);
+                }
+                valueList.add(value);
+                value = iterator.next();
+            }
+            result.put("listIt", valueList);
+        }
+        return result;
     }
 }
