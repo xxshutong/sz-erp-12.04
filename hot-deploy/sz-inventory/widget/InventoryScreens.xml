@@ -215,7 +215,12 @@
                             <widgets>
                                 <decorator-screen name="FindScreenDecorator" location="component://common/widget/CommonScreens.xml">
                                     <decorator-section name="menu-bar">
-                                        <container style="button-bar"><link target="EditInputLayer" link-type="ajax-window" height="280" width="400" text="${uiLabelMap.NewInput}" style="buttontext create"/></container>
+                                        <container style="button-bar">
+                                            <link target="EditInputLayer" link-type="ajax-window" height="280" width="400" text="${uiLabelMap.NewInput}" style="buttontext create">
+                                                <parameter param-name="batchNoId" value="${inputCtx.batchNoId}"/>
+                                                <parameter param-name="productId" value="${inputCtx.productId}"/>
+                                            </link>
+                                        </container>
                                     </decorator-section>
                                     <decorator-section name="search-options">
                                         <include-form name="FindInput" location="component://sz-inventory/widget/InventoryForms.xml"/>
@@ -240,6 +245,8 @@
                 <set field="titleProperty" value="PageTitleEditInput"/>
                 <set field="tabButtonItem" value="EditInput"/>
                 <set field="id" from-field="parameters.id"/>
+                <set field="batchNoId" from-field="parameters.batchNoId"/>
+                <set field="productId" from-field="parameters.productId"/>
                 <entity-one entity-name="InventoryInput" value-field="inventoryInput"/>
             </actions>
             <widgets>

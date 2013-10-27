@@ -170,7 +170,10 @@ under the License.
     <request-map uri="createInput">
         <security https="false" auth="false"/>
         <event type="service" invoke="createInput"/>
-        <response name="success" type="request-redirect" value="ManageInput"/>
+        <response name="success" type="request-redirect" value="ManageInput">
+            <redirect-parameter name="batchNoId"/>
+            <redirect-parameter name="productId"/>
+        </response>
         <response name="error" type="view" value="FindInput"/>
     </request-map>
 
