@@ -9,6 +9,7 @@
                 <set field="headerItem" value="BatchNoItem"/>
                 <set field="titleProperty" value="BatchNoManager"/>
                 <set field="batchNoCtx" from-field="parameters"/>
+                <set field="viewSize" from-field="parameters.VIEW_SIZE" type="Integer" default-value="100"/>
             </actions>
             <widgets>
                 <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
@@ -75,6 +76,7 @@
                 <set field="headerItem" value="ProductItem"/>
                 <set field="titleProperty" value="ProductManager"/>
                 <set field="productCtx" from-field="parameters"/>
+                <set field="viewSize" from-field="parameters.VIEW_SIZE" type="Integer" default-value="100"/>
             </actions>
             <widgets>
                 <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
@@ -141,6 +143,7 @@
                 <set field="headerItem" value="CustomerItem"/>
                 <set field="titleProperty" value="CustomerManager"/>
                 <set field="customerCtx" from-field="parameters"/>
+                <set field="viewSize" from-field="parameters.VIEW_SIZE" type="Integer" default-value="100"/>
             </actions>
             <widgets>
                 <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
@@ -207,6 +210,7 @@
                 <set field="headerItem" value="InputItem"/>
                 <set field="titleProperty" value="InputManager"/>
                 <set field="inputCtx" from-field="parameters"/>
+                <set field="viewSize" from-field="parameters.VIEW_SIZE" type="Integer" default-value="100"/>
             </actions>
             <widgets>
                 <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
@@ -280,6 +284,7 @@
                 <set field="headerItem" value="OutputItem"/>
                 <set field="titleProperty" value="OutputManager"/>
                 <set field="outputCtx" from-field="parameters"/>
+                <set field="viewSize" from-field="parameters.VIEW_SIZE" type="Integer" default-value="100"/>
             </actions>
             <widgets>
                 <decorator-screen name="main-decorator" location="${parameters.mainDecoratorLocation}">
@@ -347,6 +352,7 @@
                 <set field="titleProperty" value="MachineOutputManager"/>
                 <set field="tabButtonItem" value="ManageMachineOutput"/>
                 <set field="machineOutputCtx" from-field="parameters"/>
+                <set field="viewSize" from-field="parameters.VIEW_SIZE" type="Integer" default-value="100"/>
             </actions>
             <widgets>
                 <decorator-screen name="CommonInventoryMachineOutputMainDecorator" location="${parameters.mainDecoratorLocation}">
@@ -416,6 +422,7 @@
                 <!--<set field="titleProperty" value="MachineOutputManager"/>-->
                 <set field="tabButtonItem" value="ManageInventory"/>
                 <set field="inventoryCtx" from-field="parameters"/>
+                <set field="viewSize" from-field="parameters.VIEW_SIZE" type="Integer" default-value="100"/>
             </actions>
             <widgets>
                 <decorator-screen name="CommonInventoryMachineOutputMainDecorator" location="${parameters.mainDecoratorLocation}">
