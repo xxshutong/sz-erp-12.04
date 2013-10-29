@@ -2,6 +2,7 @@ package com.wjzpw.service;
 
 import static org.ofbiz.base.util.UtilGenerics.checkMap;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -58,6 +59,7 @@ public class FindService {
         String batchNoId = (String) inputFields.get("batchNoId");
         Integer viewSize = (Integer) context.get("viewSize");
         Integer viewIndex = (Integer) context.get("viewIndex");
+        String orderBy = (String) context.get("orderBy");
 
         DynamicViewEntity inventoryView = new DynamicViewEntity();
         inventoryView.addMemberEntity("II", "InventoryInput");
@@ -78,13 +80,17 @@ public class FindService {
 
         EntityCondition condition = EntityCondition.makeCondition(expList, EntityOperator.AND);
 
+        // Order by
+        List<String> orderBys = new ArrayList<String>();
+        orderBys.add(orderBy);
+
         // Query
         List<GenericValue> valueList = null;
         Integer listSize = null;
         try {
             int start = viewIndex.intValue() * viewSize.intValue();
             EntityListIterator result = delegator.findListIteratorByCondition(inventoryView, condition, null, null,
-                    null, null);
+                    orderBys, null);
             valueList = result.getPartialList(start, viewSize);
             listSize = result.getResultsSizeAfterPartialList();
             result.close();
