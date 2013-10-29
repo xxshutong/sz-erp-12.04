@@ -232,7 +232,7 @@ under the License.
             <text-find/>
         </field>
         <field name="inputDate" title="${uiLabelMap.InventoryInputDate}">
-            <date-time type="date"/>
+            <date-find type="date"/>
         </field>
         <field name="productId" title="${uiLabelMap.InventoryProductName}">
             <drop-down allow-empty="true" current-description="">
@@ -360,7 +360,7 @@ under the License.
             <!-- if this isn't there then with all fields empty no query will be done -->
         </field>
         <field name="OutputDate" title="${uiLabelMap.InventoryInputDate}">
-            <date-time type="date"/>
+            <date-find type="date"/>
         </field>
         <field name="customerId" title="${uiLabelMap.SzCustomerNo}">
             <drop-down allow-empty="true" current-description="">
