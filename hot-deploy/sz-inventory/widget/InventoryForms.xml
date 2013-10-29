@@ -539,7 +539,7 @@ under the License.
             <service service-name="performFindMachineOutput" result-map="result" result-map-list="listIt">
                 <field-map field-name="inputFields" from-field="machineOutputCtx"/>
                 <field-map field-name="entityName" value="InventoryMachineOutput"/>
-                <field-map field-name="orderBy" value="productId"/>
+                <field-map field-name="orderBy" value="machineNo"/>
                 <field-map field-name="viewIndex" from-field="viewIndex"/>
                 <field-map field-name="viewSize" from-field="viewSize"/>
             </service>
