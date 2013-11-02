@@ -131,7 +131,11 @@ public class MachineOutputService {
 
         GenericValue machineOutput = delegator.findByPrimaryKey("InventoryMachineOutput", idMap);
         machineOutput.set("outputAmount", total);
-        machineOutput.set("wovenShrinkage", (machineOutput.getDouble("beamAmount") - total)  / machineOutput.getDouble("beamAmount"));
+        if (machineOutput.getDouble("beamAmount") <= 0d) {
+            machineOutput.set("wovenShrinkage", 0d);
+        } else {
+            machineOutput.set("wovenShrinkage", (machineOutput.getDouble("beamAmount") - total)  / machineOutput.getDouble("beamAmount"));
+        }
         machineOutput.set("isCompleted", "Y");
         machineOutput.set("completeDate", new Timestamp(System.currentTimeMillis()));
         machineOutput.store();
