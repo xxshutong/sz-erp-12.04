@@ -139,7 +139,7 @@ under the License.
         <security https="false" auth="false"/>
         <event type="service" invoke="createCustomer"/>
         <response name="success" type="request-redirect" value="ManageCustomer"/>
-        <response name="error" type="view" value="FindCustomer"/>
+        <response name="error" type="view" value="ManageCustomer"/>
     </request-map>
 
     <request-map uri="updateCustomer">
@@ -174,7 +174,7 @@ under the License.
             <redirect-parameter name="batchNoId"/>
             <redirect-parameter name="productId"/>
         </response>
-        <response name="error" type="view" value="FindInput"/>
+        <response name="error" type="view" value="ManageInput"/>
     </request-map>
 
     <request-map uri="updateInput">
@@ -206,7 +206,7 @@ under the License.
         <security https="false" auth="false"/>
         <event type="service" invoke="createOutput"/>
         <response name="success" type="request-redirect" value="ManageOutput"/>
-        <response name="error" type="view" value="FindOutput"/>
+        <response name="error" type="view" value="ManageOutput"/>
     </request-map>
 
     <request-map uri="updateOutput">
