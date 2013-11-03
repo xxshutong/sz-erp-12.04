@@ -536,7 +536,7 @@ under the License.
           separate-columns="true"
           odd-row-style="alternate-row" header-row-style="header-row-2" default-table-style="basic-table hover-bar">
         <actions>
-            <service service-name="performFindMachineOutput" result-map="result" result-map-list="listIt">
+            <service service-name="performFind" result-map="result" result-map-list="listIt">
                 <field-map field-name="inputFields" from-field="machineOutputCtx"/>
                 <field-map field-name="entityName" value="InventoryMachineOutput"/>
                 <field-map field-name="orderBy" value="machineNo"/>
@@ -544,6 +544,13 @@ under the License.
                 <field-map field-name="viewSize" from-field="viewSize"/>
             </service>
         </actions>
+        <row-actions>
+            <service service-name="getMachineTotalOutputAmount" result-map="outputMap">
+                <field-map field-name="machineNo" from-field="machineNo"/>
+                <field-map field-name="productId" from-field="productId"/>
+                <field-map field-name="batchNoId" from-field="batchNoId"/>
+            </service>
+        </row-actions>
         <field name="id" title="${uiLabelMap.CommonId}">
             <hyperlink also-hidden="false" description="${id}" target="EditMachineOutput">
                 <parameter param-name="id"/>
@@ -561,8 +568,11 @@ under the License.
         <field name="beamAmount" title="${uiLabelMap.BeamAmount}">
             <display/>
         </field>
-        <field name="outputAmount" title="${uiLabelMap.OutputAmount}">
-            <display default-value="未知"/>
+        <field name="outputAmount" title="${uiLabelMap.OutputAmount}" use-when="!&quot;Y&quot;.equals(isCompleted)">
+            <display description="${outputMap.total}"></display>
+        </field>
+        <field name="outputAmount" title="${uiLabelMap.OutputAmount}" use-when="&quot;Y&quot;.equals(isCompleted)">
+            <display/>
         </field>
         <field name="wovenShrinkage" use-when="!&quot;Y&quot;.equals(isCompleted)" title="${uiLabelMap.CompleteFlag}" widget-style="buttontext" >
             <hyperlink target="completeMachineOutput" description="${uiLabelMap.CompleteOperate}" confirmation-message="${uiLabelMap.ConfirmComplete}">

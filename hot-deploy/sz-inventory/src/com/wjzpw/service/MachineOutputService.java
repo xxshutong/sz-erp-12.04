@@ -20,7 +20,6 @@ package com.wjzpw.service;
 
 import javolution.util.FastMap;
 import org.ofbiz.base.util.UtilMisc;
-import org.ofbiz.common.FindServices;
 import org.ofbiz.entity.Delegator;
 import org.ofbiz.entity.GenericEntityException;
 import org.ofbiz.entity.GenericValue;
@@ -33,7 +32,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.sql.Timestamp;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -168,31 +166,25 @@ public class MachineOutputService {
     }
 
     /**
-     * performFindMachineOutput
-     * <p/>
-     * This is a generic method that expects entity data affixed with special suffixes
-     * to indicate their purpose in formulating an SQL query statement.
+     * 计算当前机台产量记录的累计产量
+     *
+     * @param dctx
+     * @param context
+     * @return
      */
-    public static Map<String, Object> performFindMachineOutput(DispatchContext dctx, Map<String, ?> context) {
+    public static Map<String, Object> getMachineTotalOutputAmount(DispatchContext dctx, Map<String, Object> context) {
+        String machineNo = (String) context.get("machineNo");
+        String productId = (String) context.get("productId");
+        String batchNoId = (String) context.get("batchNoId");
+        logger.debug("========================Machine No====>{}", machineNo);
+        logger.debug("========================Product ID====>{}", productId);
+        logger.debug("========================Batch No====>{}", batchNoId);
         Delegator delegator = dctx.getDelegator();
-        Map<String, Object> result = FindServices.performFind(dctx, context);
-        EntityListIterator iterator = (EntityListIterator) result.get("listIt");
-        if (iterator != null) {
-            // 计算累计产量
-            List<GenericValue> valueList = new ArrayList<GenericValue>();
 
-            GenericValue value = iterator.next();
-            while (value != null) {
-                if (value.getDouble("outputAmount") == null) {
-                    // 计算
-                    Double total = getTotalOutputAmount(delegator, (String) value.get("machineNo"), (String) value.get("productId"), (String) value.get("batchNoId"));
-                    value.set("outputAmount", total);
-                }
-                valueList.add(value);
-                value = iterator.next();
-            }
-            result.put("listIt", valueList);
-        }
-        return result;
+        Double total = getTotalOutputAmount(delegator, machineNo, productId, batchNoId);
+        Map<String, Object> outputMap = FastMap.newInstance();
+        outputMap.put("total", total);
+
+        return outputMap;
     }
 }
