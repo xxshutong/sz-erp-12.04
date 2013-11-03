@@ -40,7 +40,7 @@ under the License.
     <!-- ========================================================= -->
 
     <entity entity-name="InventoryMachineOutput" package-name="com.ofbiz.inventory.model" title="机台产出表">
-        <field name="machineNo" type="name"></field>
+        <field name="machineNo" type="floating-point"></field>
         <field name="beamAmount" type="floating-point">
             <description>经轴长度</description>
         </field>
@@ -71,7 +71,7 @@ under the License.
     </entity>
 
     <entity entity-name="InventoryInput" package-name="com.ofbiz.inventory.model" title="入库记录表">
-        <field name="machineNo" type="name"></field>
+        <field name="machineNo" type="floating-point"></field>
         <field name="inputDate" type="date-time"></field>
         <field name="superiorNumber" type="floating-point">
             <description>优等品数量</description>

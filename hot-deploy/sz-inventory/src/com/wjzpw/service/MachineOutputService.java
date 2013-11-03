@@ -42,7 +42,7 @@ public class MachineOutputService {
 
     public static Map<String, Object> completeMachineOutput(DispatchContext dctx, Map<String, Object> context) {
         String machineOutputId = (String) context.get("id");
-        String machineNo = (String) context.get("machineNo");
+        Double machineNo = (Double) context.get("machineNo");
         String productId = (String) context.get("productId");
         String batchNoId = (String) context.get("batchNoId");
         logger.info("========================Machine No====>{}", machineNo);
@@ -71,7 +71,7 @@ public class MachineOutputService {
      *
      * @return
      */
-    private static Double getTotalOutputAmount(Delegator delegator, String machineNo, String productId, String batchNoId) {
+    private static Double getTotalOutputAmount(Delegator delegator, Double machineNo, String productId, String batchNoId) {
         DynamicViewEntity inputView = new DynamicViewEntity();
         inputView.addMemberEntity("II", "InventoryInput");
         inputView.addAlias("II", "superiorNumber", "superiorNumber", null, null, null, "sum");
@@ -149,7 +149,7 @@ public class MachineOutputService {
      * @param productId
      * @throws GenericEntityException
      */
-    private static void updateInputByBatchNoProduct(DispatchContext dctx, String machineOutputId, String machineNo, String batchNoId, String productId) throws GenericEntityException {
+    private static void updateInputByBatchNoProduct(DispatchContext dctx, String machineOutputId, Double machineNo, String batchNoId, String productId) throws GenericEntityException {
         Delegator delegator = dctx.getDelegator();
         HashMap<String, Object> paramMap = new HashMap<String, Object>();
         paramMap.put("batchNoId", batchNoId);
@@ -173,7 +173,7 @@ public class MachineOutputService {
      * @return
      */
     public static Map<String, Object> getMachineTotalOutputAmount(DispatchContext dctx, Map<String, Object> context) {
-        String machineNo = (String) context.get("machineNo");
+        Double machineNo = (Double) context.get("machineNo");
         String productId = (String) context.get("productId");
         String batchNoId = (String) context.get("batchNoId");
         logger.debug("========================Machine No====>{}", machineNo);

@@ -137,13 +137,13 @@ under the License.
              location="com.wjzpw.service.MachineOutputService">
         <description>Complete machine output</description>
         <attribute name="id" type="String" mode="IN" optional="false"/>
-        <attribute name="machineNo" type="String" mode="IN" optional="false"/>
+        <attribute name="machineNo" type="Double" mode="IN" optional="false"/>
         <attribute name="productId" type="String" mode="IN" optional="false"/>
         <attribute name="batchNoId" type="String" mode="IN" optional="false"/>
     </service>
     <service name="getMachineTotalOutputAmount" engine="java" auth="true" invoke="getMachineTotalOutputAmount" location="com.wjzpw.service.MachineOutputService">
         <description>Get total output amount by machine NO, product and batch NO</description>
-        <attribute name="machineNo" type="String" mode="IN" optional="false"/>
+        <attribute name="machineNo" type="Double" mode="IN" optional="false"/>
         <attribute name="productId" type="String" mode="IN" optional="false"/>
         <attribute name="batchNoId" type="String" mode="IN" optional="true"/>
         <attribute name="total" type="Double" mode="OUT" optional="false"/>
