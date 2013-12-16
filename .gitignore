@@ -4,7 +4,6 @@ ofbiz.iml
 .DS_Store
 *.log
 *.log.*
-ofbiz.jar
 svninfo.ftl
 derby.properties
 runtime/logs/access*
